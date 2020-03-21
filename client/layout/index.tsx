@@ -1,5 +1,6 @@
 import React, { FC } from 'react';
 import Head from 'next/head';
+import BottomPlayer from '@/components/bottom-player';
 
 interface LayoutProps {
   title?: string;
@@ -14,6 +15,7 @@ const Layout: FC<LayoutProps> = (props) => {
         <title>{title}</title>
       </Head>
       {children}
+      <BottomPlayer />
     </>
   );
 };

@@ -59,7 +59,7 @@ const IndexPage: NextPage<IndexPageProps> = (props) => {
 
   return (
     <Layout>
-      <input value={hookscount} />
+      {/* <input value={hookscount} />
       <input value={hocCounter} />
       hooks:<button onClick={increment}>+</button>
       <button onClick={descrement}>-</button>
@@ -75,7 +75,8 @@ const IndexPage: NextPage<IndexPageProps> = (props) => {
       </button>
       <Link href="/about">
         <button>前往about</button>
-      </Link>
+      </Link> */}
+      <div style={{ margin: 200 }}></div>
     </Layout>
   );
 };
