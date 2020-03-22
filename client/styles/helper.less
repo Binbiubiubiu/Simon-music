@@ -1,0 +1,18 @@
+.absolute-center(@direct) when (@direct ='auto') {
+  position : absolute;
+  top      : 50%;
+  left     : 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.absolute-center(@direct) when (@direct ='x') {
+  position : absolute;
+  left     : 50%;
+  transform: translate3d(-50%, 0, 0);
+}
+
+.absolute-center(@direct) when (@direct ='y') {
+  position : absolute;
+  top      : 50%;
+  transform: translate3d(0, -50%, 0);
+}

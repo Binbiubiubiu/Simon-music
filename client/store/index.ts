@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, Store, Middleware, Reducer } from 'redux';
 import createSagaMiddleware from 'redux-saga';
-import { persistReducer } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
+// import { persistReducer } from 'redux-persist';
+// import storage from 'redux-persist/lib/storage';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import rootReducer from './reducers';
@@ -32,18 +32,19 @@ const configureStore: MakeStore = (preloadedState, { isServer }) => {
   let store: Store<RootState>;
 
   if (isServer) {
-    console.log('server state');
-    store = createBaseStore(rootReducer, preloadedState);
+    // console.log('server state');
+    store = createStore(rootReducer);
+    // store = createBaseStore(rootReducer, preloadedState);
   } else {
-    console.log('client state');
-    const persistConfig = {
-      key: 'root',
-      storage,
-      whitelist: ['counter'], // place to select which state you want to persist
-    };
-    const persistedReducer = persistReducer(persistConfig, rootReducer);
-
-    store = createBaseStore(persistedReducer, preloadedState);
+    store = createStore(rootReducer);
+    // console.log('client state');
+    // const persistConfig = {
+    //   key: 'root',
+    //   storage,
+    //   whitelist: ['counter'], // place to select which state you want to persist
+    // };
+    // const persistedReducer = persistReducer(persistConfig, rootReducer);
+    // store = createBaseStore(persistedReducer, preloadedState);
   }
 
   return store;

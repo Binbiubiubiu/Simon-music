@@ -50,11 +50,11 @@ module.exports = {
     };
     return config;
   },
-  webpackDevMiddleware: (config) => {
-    // Perform customizations to webpack dev middleware config
-    // Important: return the modified config
+  // webpackDevMiddleware: (config) => {
+  //   // Perform customizations to webpack dev middleware config
+  //   // Important: return the modified config
 
-    return config;
-  },
+  //   return config;
+  // },
   exportTrailingSlash: false,
 };

@@ -21,5 +21,10 @@
     "experimentalDecorators": true
   },
   "exclude": ["node_modules"],
-  "include": ["next-env.d.ts", "client/**/*.ts", "pages/**/*.tsx"]
+  "include": [
+    "next-env.d.ts",
+    "client/**/*.ts",
+    "pages/**/*.tsx",
+    "client/components/side-bar/index.tsx"
+  ]
 }

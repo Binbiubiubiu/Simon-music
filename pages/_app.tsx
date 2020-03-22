@@ -5,12 +5,12 @@ import App, { AppContext } from 'next/app';
 import { persistStore, Persistor } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
 
-import '@/global.css';
+import '@/global.less';
 import configureStore from '@/store';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 class MyApp extends App<any> {
-  persistor: Persistor;
+  // persistor: Persistor;
 
   static async getInitialProps({ Component, ctx }: AppContext) {
     let pageProps = {};
@@ -25,7 +25,7 @@ class MyApp extends App<any> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   constructor(props: any) {
     super(props);
-    this.persistor = persistStore(props.store);
+    // this.persistor = persistStore(props.store);
   }
 
   render() {
@@ -33,9 +33,9 @@ class MyApp extends App<any> {
 
     return (
       <Provider store={store}>
-        <PersistGate loading={<Component {...pageProps} />} persistor={this.persistor}>
-          <Component {...pageProps} />
-        </PersistGate>
+        {/* <PersistGate loading={<Component {...pageProps} />} persistor={this.persistor}> */}
+        <Component {...pageProps} />
+        {/* </PersistGate> */}
       </Provider>
     );
   }
@@ -43,7 +43,7 @@ class MyApp extends App<any> {
 
 export default withRedux(configureStore, {
   storeKey: '__NEXT_REDUX_STORE__',
-  debug: true,
+  debug: false,
   serializeState: (state) => state,
   deserializeState: (state) => state,
 })(MyApp);
