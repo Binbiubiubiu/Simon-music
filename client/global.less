@@ -1,5 +1,10 @@
 /* purgecss start ignore */
 @import "tailwindcss/base.css";
+
+button:focus {
+  outline: none;
+}
+
 @import "tailwindcss/components.css";
 
 /* purgecss end ignore */
@@ -32,14 +37,4 @@ body {
   -webkit-font-feature-settings: 'tnum';
   font-feature-settings        : 'tnum';
   user-select                  : none;
-}
-
-button:focus {
-  outline: none;
-}
-
-.absolute-x-center {
-  position : absolute;
-  left     : 50%;
-  transform: translate3d(-50%, 0, 0);
 }

@@ -17,10 +17,6 @@ export interface IconProps {
    */
   color?: string;
   /**
-   * 点击事件
-   */
-  onClick?: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
-  /**
    * 自定义style
    */
   style?: React.CSSProperties;
@@ -31,13 +27,10 @@ export interface IconProps {
 }
 
 const Icon: FC<IconProps> = (props) => {
-  const { type, onClick, size, color, style, classname } = props;
+  const { type, size, color, style, classname } = props;
 
   return (
-    <i
-      className={cls(classname, 'iconfont', type)}
-      onClick={onClick}
-      style={{ fontSize: size, color, ...style }}></i>
+    <i className={cls(classname, 'iconfont', type)} style={{ fontSize: size, color, ...style }}></i>
   );
 };
 

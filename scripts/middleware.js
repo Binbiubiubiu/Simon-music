@@ -8,4 +8,4 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 const compose = (middlewares) => (config) => middlewares.reduce((config, cb) => cb(config), config);
 
-module.exports = compose([withLess, withCss, withBundleAnalyzer]);
+module.exports = compose([withLess, withBundleAnalyzer]);

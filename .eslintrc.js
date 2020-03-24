@@ -3,6 +3,7 @@ module.exports = {
   extends: [
     'plugin:@typescript-eslint/recommended', // Uses the recommended rules from the @typescript-eslint/eslint-plugin
     'plugin:react/recommended',
+    'plugin:jsx-a11y/recommended',
     'plugin:prettier/recommended', // Enables eslint-plugin-prettier and displays prettier errors as ESLint errors. Make sure this is always the last configuration in the extends array.
     'prettier/@typescript-eslint', // Uses eslint-config-prettier to disable ESLint rules from @typescript-eslint/eslint-plugin that would conflict with prettier
     'prettier/react',
@@ -18,7 +19,7 @@ module.exports = {
       jsx: true,
     },
   },
-  plugins: ['emotion'],
+  plugins: ['jsx-a11y'],
   env: {
     browser: true,
     node: true,

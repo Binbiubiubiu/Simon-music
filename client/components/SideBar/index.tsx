@@ -1,21 +1,30 @@
 import React, { FC } from 'react';
 import cls from 'classnames';
+import Link from 'next/link';
 import './style.less';
 import Icon from '@/components/Icon';
-import Link from 'next/link';
+import Button from '../Button';
 
 interface SideBarProps {
   width?: number;
 }
 
-const SideBar: FC<SideBarProps> = (props) => {
+const SideBar: FC<SideBarProps> = () => {
   return (
-    <section className="side-bar">
-      <div className="side-bar-header"></div>
+    <aside className="side-bar">
+      <div className="side-bar-header">
+        <Button.Icon type="Group-" className="text-white text-18 mx-4" hover></Button.Icon>
+        <Button.Icon
+          type="Group-1"
+          className="text-white text-18 mx-4 "
+          hover
+          disabled></Button.Icon>
+      </div>
       <div className="user-info">
         <img
           className="user-avator"
           src="https://p4.music.126.net/lRE0QHTUkA_DxlB14uzSqg==/109951164207703933.jpg?param=200y200"
+          alt="avator"
         />
         <div className="user-name text-overflow">今天又懒得加班</div>
       </div>
@@ -43,7 +52,7 @@ const SideBar: FC<SideBarProps> = (props) => {
       <MenuItem href="/" icon="xihuan">
         我喜欢的音乐
       </MenuItem>
-    </section>
+    </aside>
   );
 };
 
@@ -57,10 +66,10 @@ const MenuItem: FC<MenuItemProps> = (props) => {
   const { href, icon, active, children } = props;
   return (
     <Link href={href}>
-      <a className={cls('menu-item', { 'menu-item-active': active })}>
+      <span className={cls('menu-item', { 'menu-item-active': active })}>
         <Icon classname="mr-8" type={icon} size={18} />
         {children}
-      </a>
+      </span>
     </Link>
   );
 };

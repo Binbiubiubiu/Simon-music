@@ -10,10 +10,6 @@ const menus = [
     href: '/',
   },
   {
-    title: '个性推荐',
-    href: '/',
-  },
-  {
     title: '歌单',
     href: '/about',
   },
@@ -45,15 +41,15 @@ const NavBar: FC<NavBarProps> = () => {
       <nav>
         {menus.map(({ href, title }) => (
           <Link href={href} key={href}>
-            <a className="text-white px-14">{title}</a>
+            <span className="text-white px-14">{title}</span>
           </Link>
         ))}
       </nav>
       <div className="nav-toolbar ">
         <Search />
-        <Button.Icon type="shezhi" className="text-white text-18" />
-        <Button.Icon type="youjian" className="text-white text-18" />
-        <Button.Icon type="pifu" className="text-white text-18" />
+        <Button.Icon type="shezhi" className="text-white text-18" hover />
+        <Button.Icon type="youjian" className="text-white text-18" hover />
+        <Button.Icon type="pifu" className="text-white text-18" hover />
       </div>
     </header>
   );
