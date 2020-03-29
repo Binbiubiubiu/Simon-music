@@ -25,6 +25,7 @@
     "next-env.d.ts",
     "client/**/*.ts",
     "pages/**/*.tsx",
-    "client/components/side-bar/index.tsx"
+    "client/components/side-bar/index.tsx",
+    "client/modules/Title/index.tsx"
   ]
 }

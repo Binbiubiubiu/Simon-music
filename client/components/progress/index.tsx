@@ -86,19 +86,42 @@ const Progress: FC<ProgressProps> = (props) => {
     return (
       <div
         ref={ref}
+        role="slider"
+        aria-valuemax={100}
+        aria-valuemin={0}
+        aria-valuenow={current}
+        tabIndex="0"
         className={cls('progress-wrapper-y', className)}
-        onClick={handleProgressBarClick}>
+        onClick={handleProgressBarClick}
+        onKeyDown={() => 0}>
         <div className={cls(`progress-y`)} style={{ height: `${current}%` }}>
-          <div onMouseDown={handleCursorMouseDown} className={cls('progress-cursor-y')}></div>
+          <div
+            role="button"
+            tabIndex="0"
+            onMouseDown={handleCursorMouseDown}
+            className={cls('progress-cursor-y')}></div>
         </div>
       </div>
     );
   }
 
   return (
-    <div ref={ref} className={cls('progress-wrapper', className)} onClick={handleProgressBarClick}>
+    <div
+      ref={ref}
+      role="slider"
+      aria-valuemax={100}
+      aria-valuemin={0}
+      aria-valuenow={current}
+      tabIndex="0"
+      className={cls('progress-wrapper', className)}
+      onClick={handleProgressBarClick}
+      onKeyDown={() => 0}>
       <div className={cls(`progress-x`)} style={{ width: `${current}%` }}>
-        <div onMouseDown={handleCursorMouseDown} className={cls('progress-cursor-x')}></div>
+        <div
+          role="button"
+          tabIndex="0"
+          onMouseDown={handleCursorMouseDown}
+          className={cls('progress-cursor-x')}></div>
       </div>
     </div>
   );

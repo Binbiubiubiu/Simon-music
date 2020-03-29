@@ -1,0 +1,25 @@
+.new-songs {
+  @apply grid grid-cols-2 row-gap-34 col-gap-14;
+}
+
+.new-songs-item {
+  @apply flex items-center;
+}
+
+.new-songs-img {
+  position   : relative;
+  flex-shrink: 0;
+  width      : 64px;
+  height     : 64px;
+  overflow   : hidden;
+  @apply rounded cursor-pointer;
+}
+
+
+
+.new-songs-icon {
+  position : absolute;
+  top      : 50%;
+  left     : 50%;
+  transform: translate(-50%, -50%);
+}

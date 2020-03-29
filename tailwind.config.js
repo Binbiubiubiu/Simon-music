@@ -6,8 +6,17 @@ module.exports = {
       colors: {
         primary,
       },
+      gap: {
+        '14': '14px',
+        '34': '34px',
+      },
+      borderRadius: {
+        '10': '10px',
+      },
       spacing: {
+        '2': '2px',
         '4': '4px',
+        '6': '6px',
         '8': '8px',
         '10': '10px',
         '12': '12px',

@@ -2,9 +2,9 @@ import React, { FC } from 'react';
 import './style.less';
 
 import Head from 'next/head';
-import NavBar from '@/components/NavBar';
-import BottomPlayer from '@/components/BottomPlayer';
-import SideBar from '@/components/Sidebar';
+import NavBar from './components/NavBar';
+import BottomPlayer from './components/BottomPlayer';
+import SideBar from './components/Sidebar';
 
 interface LayoutProps {
   title?: string;
@@ -18,10 +18,14 @@ const Layout: FC<LayoutProps> = (props) => {
       <Head>
         <title>{title}</title>
       </Head>
-      <SideBar />
+      <NavBar></NavBar>
       <main className="layout-content">
-        <NavBar></NavBar>
-        {children}
+        <SideBar />
+        <div className="overflow-y-auto flex-1">
+          <div className="mx-auto" style={{ maxWidth: 1040, minWidth: 745, padding: '0 30px' }}>
+            {children}
+          </div>
+        </div>
       </main>
       <BottomPlayer />
     </div>

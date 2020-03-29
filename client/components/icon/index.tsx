@@ -35,8 +35,10 @@ const Icon: FC<IconProps> = (props) => {
 };
 
 Icon.defaultProps = {
-  size: 16,
+  size: 'inherit',
   color: 'inherit',
 };
 
 export default Icon;
+
+export { PlayIcon } from './PlayIcon';

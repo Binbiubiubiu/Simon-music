@@ -16,3 +16,12 @@
   top      : 50%;
   transform: translate3d(0, -50%, 0);
 }
+
+.text-emphasis(@line: 2) {
+  display           : -webkit-box;
+  overflow          : hidden;
+  text-emphasis     : none;
+  word-break        : break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: @line;
+}

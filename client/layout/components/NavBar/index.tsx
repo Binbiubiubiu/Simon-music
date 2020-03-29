@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import Link from 'next/link';
 import './style.less';
 import Search from './Search';
-import Button from '../Button';
+import Button from '@/components/Button';
 
 const menus = [
   {
@@ -11,7 +11,7 @@ const menus = [
   },
   {
     title: '歌单',
-    href: '/about',
+    href: '/song-sheet',
   },
   {
     title: '主播电台',
@@ -38,14 +38,22 @@ interface NavBarProps {
 const NavBar: FC<NavBarProps> = () => {
   return (
     <header className="nav-bar">
-      <nav>
+      <div className="side-bar-header">
+        <Button.Icon type="Group-" className="text-white text-18 mx-4" hover></Button.Icon>
+        <Button.Icon
+          type="Group-1"
+          className="text-white text-18 mx-4 "
+          hover
+          disabled></Button.Icon>
+      </div>
+      <nav className="flex-1 ml-10">
         {menus.map(({ href, title }) => (
           <Link href={href} key={href}>
             <span className="text-white px-14">{title}</span>
           </Link>
         ))}
       </nav>
-      <div className="nav-toolbar ">
+      <div className="nav-toolbar mr-10">
         <Search />
         <Button.Icon type="shezhi" className="text-white text-18" hover />
         <Button.Icon type="youjian" className="text-white text-18" hover />

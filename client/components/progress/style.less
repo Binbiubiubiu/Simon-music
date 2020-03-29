@@ -1,16 +1,11 @@
 .progress-wrapper {
   position: relative;
   width   : 100%;
+  outline : none;
   cursor  : pointer;
 }
 
-.progress-wrapper-y {
-  position  : relative;
-  height    : 100%;
-  padding   : 20px;
-  text-align: center;
-  cursor    : pointer;
-}
+
 
 .progress-x {
   position        : relative;
@@ -19,15 +14,7 @@
   background-color: @primary;
 }
 
-.progress-y {
-  position        : absolute;
-  bottom          : 0;
-  display         : inline-block;
-  width           : 3px;
-  height          : 100%;
-  margin          : auto;
-  background-color: @primary;
-}
+
 
 .progress-cursor-x {
   position        : absolute;
@@ -37,21 +24,12 @@
   height          : 14px;
   background-color: transparent;
   border-radius   : 50%;
+  outline         : none;
   transform       : translate3d(50%, -50%, 0);
 }
 
-.progress-cursor-y {
-  position        : absolute;
-  top             : 0;
-  left            : 50%;
-  width           : 14px;
-  height          : 14px;
-  background-color: transparent;
-  border-radius   : 50%;
-  transform       : translate3d(-50%, -50%, 0);
-}
 
-.progress-cursor-x:hover,
-.progress-cursor-y:hover {
+
+.progress-cursor-x:hover {
   background-color: @primary;
 }

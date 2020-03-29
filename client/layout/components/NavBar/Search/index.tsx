@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import './style.less';
-import Icon from '../../Icon';
+import Icon from '@/components/Icon';
 import Button from '@/components/Button';
 
 interface SearchProps {

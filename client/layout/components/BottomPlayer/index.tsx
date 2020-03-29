@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import './style.less';
-import Progress from '../progress';
+import Progress from '@/components/progress';
 import Button from '@/components/Button';
 
 interface BottomPlayerProps {

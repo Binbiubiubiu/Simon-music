@@ -10,7 +10,7 @@ const dev = env !== 'production';
 
 const devProxy = {
   [apiPrefix]: {
-    target: 'https://swapi.co/api/',
+    target: 'http://localhost:3000/',
     pathRewrite: { [`^${apiPrefix}`]: '/' },
     changeOrigin: true,
   },

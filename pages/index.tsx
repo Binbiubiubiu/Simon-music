@@ -1,88 +1,71 @@
 import React from 'react';
-import Layout from '@/layout';
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { useSelector, useDispatch, connect, ConnectedProps } from 'react-redux';
 
-import Link from 'next/link';
+import Layout from '@/layout';
+import Swiper from '@/components/Swiper';
+
 import { NextPage } from 'next';
 import { RootState } from '@/store';
-import {
-  incrementAction,
-  descrementAction,
-  resetAction,
-  incrementAsyncAction,
-  descrementAsyncAction,
-  resetAsyncAction,
-} from '@/store/counter/actions';
+import { queryRecommendBanners, BannerModel } from '@/api/banner';
+import { queryRecommendSongsSheet, SongSheetModel } from '@/api/song-sheet';
+import { queryPrivateContent, PrivateContentModel } from '@/api/private-content';
 
-function useCounter() {
-  const count = useSelector<RootState, number>((state) => state.counter.num);
-  const dispatch = useDispatch();
+import Title from '@/modules/Title';
+import SongSheet from '@/modules/SongSheet';
+import PrivateContent from '@/modules/PrivateContent';
+import NewSongs from '@/modules/NewSongs';
+import { queryNewSongs, NewSongModel } from '@/api/new-songs';
 
-  const increment = () => {
-    dispatch(incrementAction());
-  };
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const mapStateToProps = (state: RootState) => ({});
 
-  const descrement = () => {
-    dispatch(descrementAction());
-  };
-
-  const reset = () => {
-    dispatch(resetAction(0));
-  };
-
-  return {
-    count,
-    increment,
-    descrement,
-    reset,
-  };
-}
-
-const mapStateToProps = (state: RootState) => ({
-  hocCounter: state.counter.num,
-});
-
-const mapDispatchToProps = {
-  addOne: incrementAsyncAction,
-  subOne: descrementAsyncAction,
-  setNumber: resetAsyncAction,
-};
+const mapDispatchToProps = {};
 
 const connector = connect(mapStateToProps, mapDispatchToProps);
 
-type IndexPageProps = ConnectedProps<typeof connector> & {};
+type IndexPageProps = ConnectedProps<typeof connector> & {
+  banners: BannerModel[];
+  recommendSongSheet: SongSheetModel[];
+  privateContent: PrivateContentModel[];
+  newSongs: NewSongModel[];
+};
 
 const IndexPage: NextPage<IndexPageProps> = (props) => {
-  const { hocCounter, addOne, subOne, setNumber } = props;
-
-  const { count: hookscount, increment, descrement, reset } = useCounter();
+  const { banners, recommendSongSheet, privateContent, newSongs } = props;
 
   return (
     <Layout>
-      {/* <input value={hookscount} />
-      <input value={hocCounter} />
-      hooks:<button onClick={increment}>+</button>
-      <button onClick={descrement}>-</button>
-      <button onClick={reset}>reset 0</button>
-      <br />
-      hoc:<button onClick={addOne}>+</button>
-      <button onClick={subOne}>-</button>
-      <button
-        onClick={() => {
-          setNumber(0);
-        }}>
-        reset 0
-      </button>
-      <Link href="/about">
-        <button>前往about</button>
-      </Link> */}
-      <div style={{ margin: 200 }}></div>
+      <Swiper dataSource={banners}></Swiper>
+      <section className="section">
+        <Title level={2} href="/">
+          推荐歌单
+        </Title>
+        <SongSheet dataSource={recommendSongSheet} />
+      </section>
+      <section className="section">
+        <Title level={2} href="/">
+          独家放送
+        </Title>
+        <PrivateContent dataSource={privateContent} />
+      </section>
+      <section className="section">
+        <Title level={2} href="/">
+          最新音乐
+        </Title>
+        <NewSongs dataSource={newSongs} />
+      </section>
     </Layout>
   );
 };
 
 IndexPage.getInitialProps = async () => {
-  return {} as IndexPageProps;
+  return {
+    banners: await queryRecommendBanners(),
+    recommendSongSheet: await queryRecommendSongsSheet(),
+    privateContent: await queryPrivateContent(),
+    newSongs: await queryNewSongs(),
+  } as IndexPageProps;
 };
 
 export default connector(IndexPage);

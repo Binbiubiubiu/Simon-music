@@ -3,7 +3,6 @@ import cls from 'classnames';
 import Link from 'next/link';
 import './style.less';
 import Icon from '@/components/Icon';
-import Button from '../Button';
 
 interface SideBarProps {
   width?: number;
@@ -12,14 +11,6 @@ interface SideBarProps {
 const SideBar: FC<SideBarProps> = () => {
   return (
     <aside className="side-bar">
-      <div className="side-bar-header">
-        <Button.Icon type="Group-" className="text-white text-18 mx-4" hover></Button.Icon>
-        <Button.Icon
-          type="Group-1"
-          className="text-white text-18 mx-4 "
-          hover
-          disabled></Button.Icon>
-      </div>
       <div className="user-info">
         <img
           className="user-avator"
