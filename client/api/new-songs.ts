@@ -18,6 +18,7 @@ export interface NewSongModel {
       id: number;
       name: string;
     }[];
+    mvid: number;
   };
   alg: string;
 }
@@ -28,8 +29,7 @@ export const queryNewSongs = async () => {
     category: number;
     result: NewSongModel[];
   };
-  // const returnBody = (await request.get<{}, ReturnBodyType>(`/personalized/newsong`)).recommend;
-  // console.log(returnBody);
+  // const returnBody = (await request.get<{}, ReturnBodyType>(`/personalized/newsong`)).result;
   // return returnBody;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return (mockNewSong as any).result; //returnBody;

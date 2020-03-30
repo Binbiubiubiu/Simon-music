@@ -82,44 +82,22 @@ const Progress: FC<ProgressProps> = (props) => {
     direct,
   });
 
-  if (direct == 'y') {
-    return (
-      <div
-        ref={ref}
-        role="slider"
-        aria-valuemax={100}
-        aria-valuemin={0}
-        aria-valuenow={current}
-        tabIndex="0"
-        className={cls('progress-wrapper-y', className)}
-        onClick={handleProgressBarClick}
-        onKeyDown={() => 0}>
-        <div className={cls(`progress-y`)} style={{ height: `${current}%` }}>
-          <div
-            role="button"
-            tabIndex="0"
-            onMouseDown={handleCursorMouseDown}
-            className={cls('progress-cursor-y')}></div>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div
       ref={ref}
       role="slider"
-      aria-valuemax={100}
+      tabIndex={0}
       aria-valuemin={0}
+      aria-valuemax={100}
       aria-valuenow={current}
-      tabIndex="0"
+      aria-orientation="horizontal"
       className={cls('progress-wrapper', className)}
       onClick={handleProgressBarClick}
       onKeyDown={() => 0}>
       <div className={cls(`progress-x`)} style={{ width: `${current}%` }}>
         <div
           role="button"
-          tabIndex="0"
+          tabIndex={0}
           onMouseDown={handleCursorMouseDown}
           className={cls('progress-cursor-x')}></div>
       </div>

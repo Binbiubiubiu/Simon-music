@@ -3,4 +3,4 @@
  * @param count 数量
  */
 export const numberBaseWan = (count: number) =>
-  count > 10000 ? `${Math.floor(count / 10000)}万` : count;
+  count > 100000 ? `${Math.floor(count / 10000)}万` : count;

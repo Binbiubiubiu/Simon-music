@@ -1,9 +1,15 @@
 .new-songs {
-  @apply grid grid-cols-2 row-gap-34 col-gap-14;
+  @apply grid grid-cols-2 col-gap-14;
+
+  margin: 0 -10px;
 }
 
 .new-songs-item {
-  @apply flex items-center;
+  @apply flex items-center p-10 rounded-l-md;
+}
+
+.new-songs-item:hover {
+  background-color: #2D2E2F;
 }
 
 .new-songs-img {

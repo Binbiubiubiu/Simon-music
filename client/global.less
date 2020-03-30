@@ -3,24 +3,9 @@
 /* purgecss start ignore */
 @import "tailwindcss/base.css";
 
-button:focus {
-  outline: none;
-}
-
-@import "tailwindcss/components.css";
-
-/* purgecss end ignore */
-@import "tailwindcss/utilities.css";
-
-
-html,
-body {
-  overflow: hidden;
-}
-
 html {
-  font-family                : sans-serif;
-  line-height                : 1.15;
+  @apply font-serif leading-tight antialiased overflow-hidden;
+
   -webkit-text-size-adjust   : 100%;
   -ms-text-size-adjust       : 100%;
   text-size-adjust           : 100%;
@@ -29,14 +14,14 @@ html {
 }
 
 body {
-  color    : rgba(0, 0, 0, 0.65);
-  font-size: 14px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-    'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-    'Noto Color Emoji';
+  @apply font-sans leading-normal text-14 text-gray-900 select-none overflow-hidden;
+
   font-variant                 : tabular-nums;
-  line-height                  : 1.5715;
   -webkit-font-feature-settings: 'tnum';
   font-feature-settings        : 'tnum';
-  user-select                  : none;
 }
+
+@import "tailwindcss/components.css";
+
+/* purgecss end ignore */
+@import "tailwindcss/utilities.css";

@@ -26,7 +26,7 @@ class MyDocument extends Document {
           <meta name="format-detection" content="telephone=no" />
           <meta httpEquiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
           <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-          <link rel="stylesheet" href="//at.alicdn.com/t/font_1705120_b2lq3jfua6.css" />
+          <link rel="stylesheet" href="//at.alicdn.com/t/font_1705120_xdo2frvbk8f.css" />
         </Head>
         <body>
           <Main />

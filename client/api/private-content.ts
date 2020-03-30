@@ -1,4 +1,4 @@
-// import request from '@/utils/request';
+import request from '@/utils/request';
 import mockPrivatecontent from './mock/privatecontent';
 
 export interface PrivateContentModel {
@@ -16,10 +16,9 @@ export const queryPrivateContent = async () => {
   type ReturnBodyType = {
     code: number;
     name: string;
-    recommend: PrivateContentModel[];
+    result: PrivateContentModel[];
   };
-  // const returnBody = (await request.get<{}, ReturnBodyType>(`/personalized/privatecontent`)).recommend;
-  // console.log(returnBody);
+  // const returnBody = (await request.get<{}, ReturnBodyType>(`/personalized/privatecontent`)).result;
   // return returnBody;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return (mockPrivatecontent as any).result; //returnBody;

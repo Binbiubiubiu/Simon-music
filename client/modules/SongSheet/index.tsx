@@ -31,7 +31,9 @@ const SongSheet: FC<SongSheetProps> = (props) => {
             </div>
             <PlayIcon className="song-sheet-icon" />
           </div>
-          <div className="text-gray-400 cursor-pointer hover:text-white">{item.name}</div>
+          <div className="text-line-2 text-gray-400 cursor-pointer hover:text-white">
+            {item.name}
+          </div>
         </li>
       ))}
     </ul>

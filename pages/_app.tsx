@@ -1,6 +1,7 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import withRedux from 'next-redux-wrapper';
+import withReduxSaga from 'next-redux-saga';
 import App, { AppContext } from 'next/app';
 import { persistStore, Persistor } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
@@ -30,6 +31,7 @@ class MyApp extends App<any> {
 
   render() {
     const { Component, pageProps, store } = this.props;
+    return <Component {...pageProps} />;
 
     return (
       <Provider store={store}>
@@ -41,9 +43,11 @@ class MyApp extends App<any> {
   }
 }
 
-export default withRedux(configureStore, {
-  storeKey: '__NEXT_REDUX_STORE__',
-  debug: false,
-  serializeState: (state) => state,
-  deserializeState: (state) => state,
-})(MyApp);
+export default MyApp;
+
+// export default withRedux(configureStore, {
+//   storeKey: '__NEXT_REDUX_STORE__',
+//   debug: false,
+//   serializeState: (state) => state,
+//   deserializeState: (state) => state,
+// })(MyApp);

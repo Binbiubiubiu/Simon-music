@@ -1,0 +1,32 @@
+.djprogram {
+  @apply grid grid-cols-3 col-gap-14;
+
+  margin: 0 -10px;
+}
+
+.djprogram-item {
+  @apply flex p-10;
+}
+
+.djprogram-item:hover {
+  background-color: #2D2E2F;
+}
+
+.djprogram-img {
+  position    : relative;
+  flex-shrink : 0;
+  width       : 92px;
+  height      : 92px;
+  margin-right: 20px;
+  overflow    : hidden;
+
+  @apply rounded cursor-pointer;
+}
+
+
+
+.djprogram-icon {
+  position: absolute;
+  top     : 10px;
+  left    : 10px;
+}

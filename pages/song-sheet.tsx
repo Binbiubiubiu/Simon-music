@@ -3,24 +3,28 @@ import React from 'react';
 import Layout from '@/layout';
 
 import { NextPage } from 'next';
-import { queryRecommendSongsSheet, SongSheetModel } from '@/api/song-sheet';
+import {
+  queryRecommendSongsSheet,
+  SongSheetModel,
+  queryTopPlaylistHighquality,
+  HighqualityModel,
+} from '@/api/song-sheet';
 
-import Title from '@/modules/Title';
 import SongSheet from '@/modules/SongSheet';
+import SongSheetBar from '@/modules/SongSheetBar';
 
 type SongSheetPageProps = {
   recommendSongSheet: SongSheetModel[];
+  songSheetBarInfo: HighqualityModel;
 };
 
 const SongSheetPage: NextPage<SongSheetPageProps> = (props) => {
-  const { recommendSongSheet } = props;
+  const { recommendSongSheet, songSheetBarInfo } = props;
 
   return (
     <Layout>
+      <SongSheetBar info={songSheetBarInfo} />
       <section className="section">
-        <Title level={2} href="/">
-          推荐歌单
-        </Title>
         <SongSheet dataSource={recommendSongSheet} />
       </section>
     </Layout>
@@ -30,6 +34,7 @@ const SongSheetPage: NextPage<SongSheetPageProps> = (props) => {
 SongSheetPage.getInitialProps = async () => {
   return {
     recommendSongSheet: await queryRecommendSongsSheet(),
+    songSheetBarInfo: (await queryTopPlaylistHighquality(1))[0],
   } as SongSheetPageProps;
 };
 

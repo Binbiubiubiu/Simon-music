@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
-import Link from 'next/link';
 import './style.less';
 import Search from './Search';
 import Button from '@/components/Button';
+import NavLink from '@/components/NavLink';
 
 const menus = [
   {
@@ -48,9 +48,11 @@ const NavBar: FC<NavBarProps> = () => {
       </div>
       <nav className="flex-1 ml-10">
         {menus.map(({ href, title }) => (
-          <Link href={href} key={href}>
-            <span className="text-white px-14">{title}</span>
-          </Link>
+          <NavLink href={href} key={href} activeClass="nav-link-active">
+            <a href={href} className="text-gray-500 hover:text-gray-400 px-14">
+              {title}
+            </a>
+          </NavLink>
         ))}
       </nav>
       <div className="nav-toolbar mr-10">

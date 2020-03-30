@@ -1,5 +1,6 @@
 .side-bar {
-  flex-shrink     : 0;
+  @apply flex-shrink-0;
+
   width           : 200px;
   background-color: #202020;
 }
@@ -8,7 +9,7 @@
 
 .menu-subtitle {
   padding  : 10px 8px 0 14px;
-  color    : rgba(255, 255, 255, .8);
+  color    : rgba(255, 255, 255, .6);
   font-size: 12px;
 }
 
@@ -29,7 +30,7 @@
 .user-info {
   display    : flex;
   align-items: center;
-  padding    : 8px;
+  @apply p-12;
 
 }
 

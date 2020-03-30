@@ -15,7 +15,6 @@ export const queryRecommendBanners = async () => {
     banners: BannerModel[];
   };
   // const returnBody = (await request.get<{}, ReturnBodyType>('/banner')).banners;
-  // console.log(returnBody);
   // return returnBody;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return (mockBanners as any).banners;
