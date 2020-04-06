@@ -15,7 +15,7 @@ const PrivateContent: FC<PrivateContentProps> = (props) => {
         <li className="private-content-item" key={item.id}>
           <div className="private-content-img">
             <img src={item.sPicUrl} alt="" />
-            <PlayIcon className="private-content-icon" mode="dark" />
+            <PlayIcon className="private-content-icon" mode="dark" size={24} />
           </div>
           <div className="text-gray-400 cursor-pointer hover:text-white">{item.name}</div>
         </li>

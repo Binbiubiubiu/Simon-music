@@ -36,6 +36,9 @@ const SideBar: FC<SideBarProps> = () => {
       <MenuItem href="/" icon="xiazai">
         下载管理
       </MenuItem>
+      <MenuItem href="/" icon="B">
+        我的音乐云盘
+      </MenuItem>
       <MenuItem href="/" icon="shoucang">
         我的收藏
       </MenuItem>

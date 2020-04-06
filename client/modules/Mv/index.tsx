@@ -16,6 +16,7 @@ const Mv: FC<MvProps> = (props) => {
       {dataSource.map((item) => (
         <li className="mv-item" key={item.id}>
           <div className="mv-img">
+            <div className="hover-tip">{item.copywriter}</div>
             <img src={item.picUrl} alt="" />
             <div className="mv-play-number">
               <Icon type="bofangsanjiaoxing" />
