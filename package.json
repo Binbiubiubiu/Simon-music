@@ -1,6 +1,6 @@
 {
   "name": "next-template",
-  "version": "0.0.2-3",
+  "version": "0.0.1",
   "author": "lvbin",
   "description": "a next-template",
   "main": "server/electron.js",
@@ -57,6 +57,7 @@
     "axios": "^0.19.2",
     "classnames": "^2.2.6",
     "express": "^4.17.1",
+    "lodash": "^4.17.15",
     "next": "^9.3.2",
     "next-redux-saga": "^4.1.2",
     "next-redux-wrapper": "^5.0.0",
@@ -78,6 +79,7 @@
     "@types/enzyme": "^3.10.4",
     "@types/enzyme-adapter-react-16": "^1.0.5",
     "@types/jest": "^24.0.25",
+    "@types/lodash": "^4.14.149",
     "@types/node": "^13.1.4",
     "@types/react": "^16.9.17",
     "@types/react-redux": "^7.1.5",

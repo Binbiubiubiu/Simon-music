@@ -1,26 +1,11 @@
-# Changelog
-
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
-
-### [0.0.2-3](https://github.com/Simon-Bin/next-template/compare/v0.0.2...v0.0.2-3) (2020-03-21)
-
+## 0.0.1 (2020-03-30)
 
 ### Features
 
-* add less ([9b9471c](https://github.com/Simon-Bin/next-template/commit/9b9471c566d177bccc978c6e4c802198590c1cbc))
+- add a11y eslint ([2513652](https://github.com/Simon-Bin/next-template/commit/2513652ec9b0e409069af4cf9b44107e3303266f))
+- add electron ([049f3f9](https://github.com/Simon-Bin/next-template/commit/049f3f947a454a1aae386d6b85dddb5f5a43d639))
+- 完成部分个性推荐 ([49e7667](https://github.com/Simon-Bin/next-template/commit/49e766761ee47a3c8c3a2b7f0f62876fa2c7821c))
 
-### [0.0.2-2](https://github.com/Simon-Bin/next-template/compare/v0.0.2-1...v0.0.2-2) (2020-01-11)
+### Performance Improvements
 
-### Bug Fixes
-
-* fix react-saga combine bug ([5cd8e11](https://github.com/Simon-Bin/next-template/commit/5cd8e1119b41c54ca0f3dfbad4ef82a403c7c1bd))
-
-### [0.0.2-1](https://github.com/Simon-Bin/next-template/compare/v0.0.2-0...v0.0.2-1) (2020-01-10)
-
-## [0.0.2-0](https://github.com/Simon-Bin/next-template/compare/v0.0.1...v0.0.2-0) (2020-01-10)
-
-### Bug Fixes
-
-* fix version bug ([d147067](https://github.com/Simon-Bin/next-template/commit/d14706739c3d576b96cd5d56031b7c5234d62173))
-
-## 0.0.1 (2020-01-10)
+- improve page performance ([1fa87c3](https://github.com/Simon-Bin/next-template/commit/1fa87c3d12173254d8c748094514146c42e4f356))

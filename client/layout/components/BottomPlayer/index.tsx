@@ -1,16 +1,35 @@
-import React, { FC } from 'react';
+import React, { FC, useRef, useEffect, useMemo } from 'react';
 import './style.less';
-import Progress from '@/components/progress';
+import Progress from './Progress';
 import Button from '@/components/Button';
+import useAudio from '@/hooks/useAudio';
+import { getMusicDuration } from '@/utils/time';
 
 interface BottomPlayerProps {
   name?: string;
 }
 
 const BottomPlayer: FC<BottomPlayerProps> = () => {
+  const { audioRef, paused, duration, current, percent, play, pause } = useAudio(
+    'http://m8.music.126.net/20200406161931/2e19063bbd0c15b7ed8eeae6197a9295/ymusic/0fd6/4f65/43ed/a8772889f38dfcb91c04da915b301617.mp3',
+  );
+
+  const musicTime = useMemo<string>(
+    () => `${getMusicDuration(current)} / ${getMusicDuration(duration)}`,
+    [current, duration],
+  );
+
   return (
     <footer className="bottom-player">
-      <Progress value={40} />
+      <audio ref={audioRef}>
+        <track kind="captions" />
+      </audio>
+      <Progress
+        value={percent}
+        onChange={(p) => {
+          play((p / 100) * duration);
+        }}
+      />
       <ul className="bottom-player-bar">
         <li className="bottom-player-song">
           <img
@@ -25,7 +44,7 @@ const BottomPlayer: FC<BottomPlayerProps> = () => {
               </span>
               <small className="whitespace-no-wrap opacity-75">&nbsp; - Bronn Journey</small>
             </dt>
-            <dd className="text-12 opacity-50">02:53 / 04:24</dd>
+            <dd className="text-12 opacity-50">{musicTime}</dd>
           </dl>
         </li>
         <li className="bottom-player-control">
@@ -34,7 +53,7 @@ const BottomPlayer: FC<BottomPlayerProps> = () => {
             type="shangyishou"
             className="text-primary text-22"
             title="上一首(快捷键)"></Button.Icon>
-          <Button.Icon type="bofangzanting" className="play-btn" title="暂停(快捷键)"></Button.Icon>
+          <PlaySwitch paused={paused} onPlay={() => play(current)} onPause={pause} />
           <Button.Icon
             type="next"
             className="text-primary text-22"
@@ -55,3 +74,27 @@ const BottomPlayer: FC<BottomPlayerProps> = () => {
 };
 
 export default BottomPlayer;
+
+interface PlaySwitchProps {
+  paused: boolean;
+  onPlay: () => void;
+  onPause: () => void;
+}
+
+const PlaySwitch: FC<PlaySwitchProps> = (props) => {
+  const { paused, onPlay, onPause } = props;
+
+  return paused ? (
+    <Button.Icon
+      onClick={onPlay.bind(null, 0)}
+      type="bofang pl-4"
+      className="play-btn"
+      title="播放(快捷键)"></Button.Icon>
+  ) : (
+    <Button.Icon
+      onClick={onPause}
+      type="bofangzanting "
+      className="play-btn"
+      title="暂停(快捷键)"></Button.Icon>
+  );
+};

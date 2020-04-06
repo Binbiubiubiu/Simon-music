@@ -1,18 +1,19 @@
-import React, { FC, useState, useEffect, useRef } from 'react';
+import React, { FC, useReducer, useEffect, useRef } from 'react';
 import cls from 'classnames';
 import './style.less';
 import { bindEvent, unbindEvent } from '@/utils/dom';
-import { getPercent } from '@/utils/math';
+import { percent } from '@/utils/number';
+import { progressReducer } from './store';
 
 interface ProgressProps {
   value?: number;
-  direct?: 'x' | 'y';
   className?: string;
+  onChange?: (value: number) => void;
 }
 
 interface ProgressDragOps {
-  defaultValue: number;
-  direct: 'x' | 'y';
+  value: number;
+  onChange?: (value: number) => void;
 }
 
 const useProgressDrag = (ref: React.RefObject<HTMLDivElement>, options: ProgressDragOps) => {
@@ -20,66 +21,82 @@ const useProgressDrag = (ref: React.RefObject<HTMLDivElement>, options: Progress
     throw new Error('拖拽对象不能为空');
   }
 
-  const { defaultValue, direct = 'x' } = options;
+  const { value, onChange } = options;
 
-  const [current, setCurrent] = useState(defaultValue);
-  const [sum, setSum] = useState(0);
-  const [startVal, setStartVal] = useState(0);
+  const [state, dispatch] = useReducer(progressReducer, {
+    current: value,
+    sum: 0,
+    startVal: 0,
+    isMoving: false,
+  });
+
+  useEffect(() => {
+    if (state.isMoving) return;
+    dispatch({
+      current: value,
+    });
+  }, [value]);
 
   useEffect(() => {
     const el = ref.current;
     const rect = el?.getBoundingClientRect() || { width: 0, height: 0, x: 0, y: 0 };
-    if (direct == 'x') {
-      setSum(rect.width);
-      setStartVal(rect.x + window.pageXOffset); //获取pageX
-    } else {
-      setSum(rect.height);
-      setStartVal(rect.y + window.pageYOffset + rect.height); //获取pageX
-    }
-  }, [ref]);
 
-  useEffect(() => {
-    setCurrent(defaultValue);
-  }, [defaultValue]);
+    dispatch({
+      sum: rect.width,
+      startVal: rect.x + window.pageXOffset, //获取pageX
+    });
+  }, [ref]);
 
   const handleProgressBarClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e.stopPropagation();
-    if (direct == 'x') {
-      setCurrent(getPercent(e.pageX - startVal, sum));
-    } else {
-      setCurrent(getPercent(startVal - e.pageY, sum));
-    }
+    const current = percent(e.pageX - state.startVal, state.sum);
+    onChange && onChange(current);
+    dispatch({
+      current,
+    });
   };
 
   const handleDocumentMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    const computed = direct == 'x' ? e.pageX - startVal : startVal - e.pageY;
-    console.log(e.pageY, startVal, computed, sum);
-    setCurrent(getPercent(Math.min(computed, sum), sum));
+    e.stopPropagation();
+    const current = percent(Math.min(e.pageX - state.startVal, state.sum), state.sum);
+    dispatch({
+      current,
+    });
   };
 
   const handleCursorMouseUp = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e.stopPropagation();
+    const current = percent(Math.min(e.pageX - state.startVal, state.sum), state.sum);
+    onChange && onChange(current);
+    dispatch({
+      isMoving: false,
+      current,
+    });
+
     unbindEvent(document, 'mousemove', handleDocumentMove);
     unbindEvent(document, 'mouseup', handleCursorMouseUp);
   };
 
   const handleCursorMouseDown = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
     e.stopPropagation();
+    dispatch({
+      isMoving: true,
+    });
     bindEvent(document, 'mousemove', handleDocumentMove);
     bindEvent(document, 'mouseup', handleCursorMouseUp);
   };
 
-  return { current, handleCursorMouseDown, handleProgressBarClick };
+  return { current: state.current, handleCursorMouseDown, handleProgressBarClick };
 };
 
 const Progress: FC<ProgressProps> = (props) => {
-  const { value, direct = 'x', className } = props;
+  const { value, className, onChange } = props;
 
   const ref = useRef<HTMLDivElement>(null);
 
   const { current, handleCursorMouseDown, handleProgressBarClick } = useProgressDrag(ref, {
-    defaultValue: value || 0,
-    direct,
+    value: value || 0,
+    onChange,
   });
 
   return (
@@ -107,7 +124,6 @@ const Progress: FC<ProgressProps> = (props) => {
 
 Progress.defaultProps = {
   value: 0,
-  direct: 'x',
 };
 
 export default Progress;
