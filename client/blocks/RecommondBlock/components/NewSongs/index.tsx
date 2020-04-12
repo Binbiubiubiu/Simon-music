@@ -4,6 +4,7 @@ import './style.less';
 import { NewSongModel } from '@/api/1';
 import { PlayIcon } from '@/components/Icon';
 import Button from '@/components/Button';
+import CachedImage from '@/components/CachedImage';
 
 interface NewSongsProps {
   dataSource: NewSongModel[];
@@ -16,7 +17,8 @@ const NewSongs: FC<NewSongsProps> = (props) => {
       {dataSource.map((item, i) => (
         <li className="new-songs-item hover:bg-gray-800" key={item.id}>
           <div className="new-songs-img">
-            <img src={item.picUrl} alt="" />
+            <CachedImage src={item.picUrl} alt={item.name} />
+
             <PlayIcon className="new-songs-icon" />
           </div>
           <div className="text-gray-700 px-10">{`0${i + 1}`}</div>

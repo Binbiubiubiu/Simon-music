@@ -3,6 +3,7 @@ import './style.less';
 import { SongSheetModel } from '@/api/1';
 import Icon, { PlayIcon } from '@/components/Icon';
 import { numberBaseWan } from '@/utils/number';
+import CachedImage from '@/components/CachedImage';
 
 interface RecommondSongSheetProps {
   dataSource: SongSheetModel[];
@@ -23,7 +24,8 @@ const RecommondSongSheet: FC<RecommondSongSheetProps> = (props) => {
       {dataSource.map((item) => (
         <li className="song-sheet-item" key={item.id}>
           <div className="song-sheet-img">
-            <img src={item.picUrl} alt="" />
+            <CachedImage src={item.picUrl} alt={item.name} />
+
             <div className="song-sheet-play-number">
               <Icon type="bofangsanjiaoxing" />
               &nbsp;

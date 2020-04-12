@@ -4,6 +4,7 @@ import './style.less';
 import { MvModel } from '@/api/1';
 import Icon from '@/components/Icon';
 import { numberBaseWan } from '@/utils/number';
+import CachedImage from '@/components/CachedImage';
 
 interface MvProps {
   dataSource: MvModel[];
@@ -17,7 +18,7 @@ const Mv: FC<MvProps> = (props) => {
         <li className="mv-item" key={item.id}>
           <div className="mv-img">
             <div className="hover-tip">{item.copywriter}</div>
-            <img src={item.picUrl} alt="" />
+            <CachedImage src={item.picUrl} alt={item.name} />
             <div className="mv-play-number">
               <Icon type="bofangsanjiaoxing" />
               &nbsp;

@@ -98,7 +98,7 @@ const SongSheetBlock: FC<SongSheetBlockProps> = (props) => {
       </div>
       <SongSheetList dataSource={list} />
 
-      <Pagination {...pagination} onPageChange={handlePageChange} />
+      <Pagination className="mt-40 mb-80" {...pagination} onPageChange={handlePageChange} />
     </>
   );
 };

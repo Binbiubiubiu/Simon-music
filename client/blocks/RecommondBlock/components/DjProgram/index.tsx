@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import './style.less';
 
 import { DjProgramModel } from '@/api/1';
+import CachedImage from '@/components/CachedImage';
 
 interface DjProgramProps {
   dataSource: DjProgramModel[];
@@ -14,7 +15,7 @@ const DjProgram: FC<DjProgramProps> = (props) => {
       {dataSource.map((item) => (
         <li className="djprogram-item" key={item.id}>
           <div className="djprogram-img">
-            <img src={item.picUrl} alt="" />
+            <CachedImage src={item.picUrl} alt={item.program.radio.name} />
           </div>
           <div className="flex-1 flex flex-col justify-center">
             <div className="text-gray-400 cursor-pointer hover:text-white truncate mb-8">

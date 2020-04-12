@@ -17,7 +17,7 @@ const SongSheetBar: FC<SongSheetBarProps> = (props) => {
   return (
     <section className="relative overflow-hidden rounded-md my-24 cursor-pointer">
       <div className="relative z-10 p-14 flex">
-        <img className="w-36 rounded-md mr-14" src={info.coverImgUrl} alt="" />
+        <img className="songsheet-bar-img" src={info.coverImgUrl} alt={info.name} />
         <dl className="flex-auto">
           <dt className=" text-yellow-500 border-yellow-500 border inline-block py-4 px-12 my-20 rounded-full">
             <Icon type="jingpin" /> 精品歌单
