@@ -23,7 +23,7 @@ service.interceptors.request.use(
   },
   (error) => {
     // do something with request error
-    console.log(error); // for debug
+    // console.log(error); // for debug
     return Promise.reject(error);
   },
 );
@@ -66,8 +66,8 @@ service.interceptors.response.use(
     // 500: Illegal token
     if (errData.message) {
     }
-
-    return Promise.reject(errData);
+    console.log(error);
+    return Promise.reject(error);
   },
 );
 

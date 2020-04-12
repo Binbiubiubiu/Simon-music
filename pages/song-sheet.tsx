@@ -4,38 +4,37 @@ import Layout from '@/layout';
 
 import { NextPage } from 'next';
 import {
-  queryRecommendSongsSheet,
-  SongSheetModel,
   queryTopPlaylistHighquality,
-  HighqualityModel,
-} from '@/api/song-sheet';
+  queryHotSongSheetTag,
+  queryTopPlaylist,
+  queryCatlist,
+} from '@/api/2';
 
-import SongSheet from '@/modules/SongSheet';
-import SongSheetBar from '@/modules/SongSheetBar';
+import SongSheetBlock, { SongSheetBlockProps } from '@/blocks/SongSheetBlock';
 
-type SongSheetPageProps = {
-  recommendSongSheet: SongSheetModel[];
-  songSheetBarInfo: HighqualityModel;
-};
-
-const SongSheetPage: NextPage<SongSheetPageProps> = (props) => {
-  const { recommendSongSheet, songSheetBarInfo } = props;
-
+const SongSheetPage: NextPage<SongSheetBlockProps> = (props) => {
   return (
     <Layout>
-      <SongSheetBar info={songSheetBarInfo} />
-      <section className="section">
-        <SongSheet dataSource={recommendSongSheet} />
-      </section>
+      <SongSheetBlock {...props} />
     </Layout>
   );
 };
 
 SongSheetPage.getInitialProps = async () => {
+  const { playlists, total } = await queryTopPlaylist('全部');
+  const topBarList = await queryTopPlaylistHighquality('全部');
+
   return {
-    recommendSongSheet: await queryRecommendSongsSheet(),
-    songSheetBarInfo: (await queryTopPlaylistHighquality(1))[0],
-  } as SongSheetPageProps;
+    initedTopBarInfo: topBarList[0],
+    initedCatList: await queryCatlist(),
+    initedHotTags: await queryHotSongSheetTag(),
+    initedSongSheetData: {
+      list: playlists,
+      total,
+      limit: 100,
+      offset: 0,
+    },
+  } as SongSheetBlockProps;
 };
 
 export default SongSheetPage;

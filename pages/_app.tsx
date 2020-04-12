@@ -6,6 +6,7 @@ import App, { AppContext } from 'next/app';
 import { persistStore, Persistor } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
 
+import '@/styles/components/index.less';
 import '@/global.less';
 import configureStore from '@/store';
 

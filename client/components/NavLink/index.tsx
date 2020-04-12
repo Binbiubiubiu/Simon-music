@@ -1,20 +1,22 @@
-import React, { FC } from 'react';
+import React, { FC, useMemo } from 'react';
 import Link, { LinkProps } from 'next/link';
 import { useRouter } from 'next/router';
 
-type NavLinkProps = LinkProps & {
+interface NavLinkProps extends LinkProps {
   activeClass?: string;
+  activeLinkPath?: string[];
   children: React.ReactElement;
-};
+}
 
 const NavLink: FC<NavLinkProps> = (props) => {
-  const { href, activeClass, children, ...rest } = props;
-  const router = useRouter();
+  const { href, activeClass, activeLinkPath = [], children, ...rest } = props;
+  const { pathname } = useRouter();
 
-  let className = React.Children.only(children).props.className || '';
-  if (router.pathname === href) {
-    className = `${className} ${activeClass}`;
-  }
+  const className = useMemo(() => {
+    const childClassName = React.Children.only(children).props.className || '';
+    const isActive = [href].concat(activeLinkPath).includes(pathname);
+    return [childClassName, isActive ? activeClass : ''].join(' ');
+  }, [pathname]);
 
   return (
     <Link href={href} {...rest}>

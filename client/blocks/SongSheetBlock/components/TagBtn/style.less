@@ -1,0 +1,69 @@
+.tag-btn {
+  width      : auto;
+  min-width  : 105px;
+  overflow   : hidden;
+  white-space: nowrap;
+  @apply text-gray-500 border-gray-800 border py-8 px-14;
+}
+
+.tag-popup {
+  @apply absolute z-50;
+
+  top             : calc(100% + 10px);
+  left            : 0;
+  width           : 745px;
+  height          : 745px;
+  background-color: #363636;
+  border-radius   : 4px;
+}
+
+.tag-popup::before {
+  position     : absolute;
+  top          : -16px;
+  left         : 36px;
+  z-index      : 55;
+  box-sizing   : border-box;
+  width        : 10px;
+  height       : 10px;
+  border-top   : 8px solid transparent;
+  border-right : 8px solid transparent;
+  border-bottom: 8px solid #363636;
+  border-left  : 8px solid transparent;
+  content      : '';
+}
+
+.type-tag-group-label {
+  flex: 0 0 100px;
+}
+
+.type-tag {
+  @apply relative inline-block py-10 px-14 leading-none rounded-full cursor-pointer text-gray-500 whitespace-no-wrap;
+}
+
+.type-tag:hover {
+  @apply text-gray-400;
+}
+
+.type-tag-active,
+.type-tag-active:hover {
+  @apply text-primary;
+
+  background-color: rgba(194, 70, 58, .06);
+}
+
+.type-tag-hot {
+  position      : relative;
+  letter-spacing: 0;
+}
+
+.type-tag-hot::after {
+  position   : absolute;
+  top        : 0;
+  left       : 100%;
+  display    : inline-block;
+  color      : @primary;
+  font-weight: bold;
+  font-size  : 12px;
+  transform  : scale(.5) translateX(-50%);
+  content    : 'HOT';
+}

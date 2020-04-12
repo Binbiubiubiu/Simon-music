@@ -2,7 +2,7 @@ import React, { FC, useState, useEffect } from 'react';
 import cls from 'classnames';
 import './style.less';
 import Button from '../Button';
-import { BannerModel } from '@/api/banner';
+import { BannerModel } from '@/api/1';
 
 type UseSwiperOpstion = {
   initCurrent?: number;
@@ -113,14 +113,8 @@ const Swiper: FC<SwiperProps> = (props) => {
             <div className="swiper-badge">{dataSource[i].typeTitle}</div>
           </li>
         ))}
-        <Button.Icon
-          type="Group-"
-          className="swiper-btn "
-          onClick={() => preAction()}></Button.Icon>
-        <Button.Icon
-          type="Group-1"
-          className="swiper-btn "
-          onClick={() => nextAction()}></Button.Icon>
+        <Button type="Group-" className="swiper-btn " onClick={() => preAction()}></Button>
+        <Button type="Group-1" className="swiper-btn " onClick={() => nextAction()}></Button>
       </ul>
       <ul className="swiper-footer">
         {items.map((position, i) => (

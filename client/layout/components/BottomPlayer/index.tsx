@@ -39,34 +39,26 @@ const BottomPlayer: FC<BottomPlayerProps> = () => {
           />
           <dl className="flex-1 min-w-0 text-white">
             <dt className="flex items-center">
-              <span className="inline-block truncate text-white">
-                My Heart Will Go On (Titanic){' '}
-              </span>
+              <span className="flex-1 truncate">My Heart Will Go On (Titanic)</span>
               <small className="whitespace-no-wrap opacity-75">&nbsp; - Bronn Journey</small>
             </dt>
             <dd className="text-12 opacity-50">{musicTime}</dd>
           </dl>
         </li>
         <li className="bottom-player-control">
-          <Button.Icon type="xihuan" className="text-white text-18" title="喜欢"></Button.Icon>
-          <Button.Icon
+          <Button type="xihuan" className="text-white text-18" title="喜欢"></Button>
+          <Button
             type="shangyishou"
             className="text-primary text-22"
-            title="上一首(快捷键)"></Button.Icon>
+            title="上一首(快捷键)"></Button>
           <PlaySwitch paused={paused} onPlay={() => play(current)} onPause={pause} />
-          <Button.Icon
-            type="next"
-            className="text-primary text-22"
-            title="下一首(快捷键)"></Button.Icon>
-          <Button.Icon type="fenxiang" className="text-white text-18" title="分享"></Button.Icon>
+          <Button type="next" className="text-primary text-22" title="下一首(快捷键)"></Button>
+          <Button type="fenxiang" className="text-white text-18" title="分享"></Button>
         </li>
         <li className="bottom-player-menu">
-          <Button.Icon
-            type="bofangliebiao"
-            className="text-white text-18"
-            title="打开播放列表"></Button.Icon>
-          <Button.Icon type="geci" className="text-white text-18" title="歌词"></Button.Icon>
-          <Button.Icon type="yinliang" className="text-white text-18" title="静音"></Button.Icon>
+          <Button type="bofangliebiao" className="text-white text-18" title="打开播放列表"></Button>
+          <Button type="geci" className="text-white text-18" title="歌词"></Button>
+          <Button type="yinliang" className="text-white text-18" title="静音"></Button>
         </li>
       </ul>
     </footer>
@@ -85,16 +77,16 @@ const PlaySwitch: FC<PlaySwitchProps> = (props) => {
   const { paused, onPlay, onPause } = props;
 
   return paused ? (
-    <Button.Icon
+    <Button
       onClick={onPlay.bind(null, 0)}
       type="bofang pl-4"
       className="play-btn"
-      title="播放(快捷键)"></Button.Icon>
+      title="播放(快捷键)"></Button>
   ) : (
-    <Button.Icon
+    <Button
       onClick={onPause}
       type="bofangzanting "
       className="play-btn"
-      title="暂停(快捷键)"></Button.Icon>
+      title="暂停(快捷键)"></Button>
   );
 };

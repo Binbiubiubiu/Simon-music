@@ -28,7 +28,7 @@ const SideBar: FC<SideBarProps> = () => {
       <MenuItem href="/" icon="shipin">
         视频
       </MenuItem>
-      <MenuItem href="/" icon="pengyou">
+      <MenuItem href="/" icon="qunliao">
         朋友
       </MenuItem>
 
@@ -61,7 +61,7 @@ const MenuItem: FC<MenuItemProps> = (props) => {
   return (
     <Link href={href}>
       <span className={cls('menu-item', { 'menu-item-active': active })}>
-        <Icon classname="mr-8" type={icon} size={18} />
+        <Icon className="mr-8 text-18" type={icon} />
         {children}
       </span>
     </Link>

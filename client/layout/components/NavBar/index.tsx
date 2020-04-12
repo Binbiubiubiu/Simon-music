@@ -7,7 +7,8 @@ import NavLink from '@/components/NavLink';
 const menus = [
   {
     title: '个性推荐',
-    href: '/',
+    href: '/recommond',
+    activeLinkPath: ['/', '/recommond'],
   },
   {
     title: '歌单',
@@ -39,16 +40,16 @@ const NavBar: FC<NavBarProps> = () => {
   return (
     <header className="nav-bar">
       <div className="side-bar-header">
-        <Button.Icon type="Group-" className="text-white text-18 mx-4" hover></Button.Icon>
-        <Button.Icon
-          type="Group-1"
-          className="text-white text-18 mx-4 "
-          hover
-          disabled></Button.Icon>
+        <Button type="Group-" className="text-white text-18 mx-4" hover></Button>
+        <Button type="Group-1" className="text-white text-18 mx-4 " hover disabled></Button>
       </div>
       <nav className="flex-1 ml-10">
-        {menus.map(({ href, title }) => (
-          <NavLink href={href} key={href} activeClass="nav-link-active">
+        {menus.map(({ href, activeLinkPath, title }) => (
+          <NavLink
+            href={href}
+            activeLinkPath={activeLinkPath}
+            key={href}
+            activeClass="nav-link-active">
             <a href={href} className="text-gray-500 hover:text-gray-400 px-14">
               {title}
             </a>
@@ -57,9 +58,9 @@ const NavBar: FC<NavBarProps> = () => {
       </nav>
       <div className="nav-toolbar mr-10">
         <Search />
-        <Button.Icon type="shezhi" className="text-white text-18" hover />
-        <Button.Icon type="youjian" className="text-white text-18" hover />
-        <Button.Icon type="pifu" className="text-white text-18" hover />
+        <Button type="shezhi" className="text-white text-18" hover />
+        <Button type="youjian" className="text-white text-18" hover />
+        <Button type="pifu" className="text-white text-18" hover />
       </div>
     </header>
   );

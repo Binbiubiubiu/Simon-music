@@ -1,0 +1,28 @@
+.pagination {
+  @apply flex items-center justify-center;
+}
+
+.pagination button:disabled {
+  @apply text-gray-700 cursor-not-allowed;
+}
+
+.pagination button:not(:disabled):hover {
+  background-color: rgba(255, 255, 255, .06);
+}
+
+.pagination-btn {
+  @apply text-gray-600 border-gray-800 border w-24 h-24 mx-2 text-12 flex items-center justify-center;
+
+  border-radius: 4px;
+}
+
+
+
+.pagination-btn-active,
+.pagination-btn-active:hover {
+  @apply text-white bg-primary;
+}
+
+.pagination-btn:focus {
+  @apply outline-none;
+}

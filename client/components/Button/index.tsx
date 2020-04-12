@@ -2,10 +2,10 @@ import React, { FC } from 'react';
 import cls from 'classnames';
 import './style.less';
 import Icon from '../Icon';
-import { noop } from '@/constants';
+import { noop } from '@/utils/constants';
 
 interface IconButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
-  type: string;
+  type?: string;
   hover?: boolean;
   disabled?: boolean;
   onClick?: React.EventHandler<React.MouseEvent<HTMLElement>>;
@@ -21,12 +21,10 @@ const IconButton: FC<IconButtonProps> = (props) => {
       onClick={onClick}
       disabled={disabled}
       {...rest}>
-      <Icon type={type} size="inherit" />
+      {type ? <Icon type={type} /> : null}
       {children}
     </button>
   );
 };
 
-export default {
-  Icon: IconButton,
-};
+export default IconButton;

@@ -1,0 +1,35 @@
+.song-sheet-img {
+  position     : relative;
+  margin-bottom: 4px;
+  overflow     : hidden;
+  @apply rounded cursor-pointer;
+}
+
+.song-sheet-play-number {
+  position: absolute;
+  top     : 4px;
+  right   : 10px;
+
+  @apply text-white text-12;
+}
+
+
+
+.song-sheet-icon {
+  position  : absolute;
+  right     : 8px;
+  bottom    : 8px;
+  visibility: hidden;
+}
+
+.song-sheet-img:hover .song-sheet-icon {
+  visibility: visible;
+}
+
+.song-sheet-author {
+  position: absolute;
+  bottom  : 8px;
+  left    : 8px;
+
+  @apply flex text-white text-12 w-1/2;
+}

@@ -1,21 +1,15 @@
-import React, { FC } from 'react';
+import React, { FC, useMemo } from 'react';
 import cls from 'classnames';
 
 export interface IconProps {
   /**
-   * 类型
-   */
-  type: string;
-  /**
    * 大小
-   *  @default 16px
    */
   size?: number | string;
   /**
-   * 颜色
-   *  @default inherit  继承父标签的color熟悉
+   * 类型
    */
-  color?: string;
+  type: string;
   /**
    * 自定义style
    */
@@ -23,20 +17,20 @@ export interface IconProps {
   /**
    * 自定义class
    */
-  classname?: string;
+  className?: string;
 }
 
 const Icon: FC<IconProps> = (props) => {
-  const { type, size, color, style, classname } = props;
+  const { type, size, style, className } = props;
 
-  return (
-    <i className={cls(classname, 'iconfont', type)} style={{ fontSize: size, color, ...style }}></i>
-  );
-};
+  const computedStyle = useMemo(() => {
+    return {
+      ...style,
+      fontSize: size,
+    };
+  }, [size, style]);
 
-Icon.defaultProps = {
-  size: 'inherit',
-  color: 'inherit',
+  return <i className={cls('iconfont', type, 'icon-default', className)} style={computedStyle}></i>;
 };
 
 export default Icon;
