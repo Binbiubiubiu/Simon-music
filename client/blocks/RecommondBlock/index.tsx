@@ -6,7 +6,7 @@ import {
   NewSongModel,
   MvModel,
   DjProgramModel,
-} from '@/api/1';
+} from '@/api/recommond';
 
 import Swiper from '@/components/Swiper';
 import Title from '@/components/Title';

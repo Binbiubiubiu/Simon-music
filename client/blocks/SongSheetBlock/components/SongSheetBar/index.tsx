@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import './style.less';
 import Icon from '@/components/Icon';
-import { HighqualityModel } from '@/api/2';
+import { HighqualityModel } from '@/api/song-sheet';
 
 interface SongSheetBarProps {
   info: HighqualityModel;

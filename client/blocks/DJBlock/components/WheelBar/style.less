@@ -1,0 +1,50 @@
+.wheelbar {
+  transition: transform 1s linear;
+
+  @apply flex whitespace-no-wrap;
+}
+
+.wheelbar-type {
+  @apply inline-flex flex-col items-center cursor-pointer;
+
+  width: 12.5%;
+}
+
+
+.wheelbar-icon {
+  @apply flex justify-center items-center rounded-full;
+
+  width           : 54px;
+  height          : 54px;
+  background-color: rgba(194, 70, 58, .05);
+}
+
+.wheelbar-type:hover>.wheelbar-icon {
+  background-color: rgba(194, 70, 58, .1);
+}
+
+.wheelbar-icon-pic {
+  display            : inline-block;
+  width              : 24px;
+  height             : 24px;
+  background-repeat  : no-repeat;
+  background-position: top right;
+  background-size    : 48px;
+}
+
+.wheelbar-text {
+  @apply text-12 text-center mt-6;
+
+  color: rgba(255, 255, 255, .4);
+}
+
+.wheelbar-arrow {
+  @apply text-white;
+
+  width    : 30px;
+  font-size: 28px;
+}
+
+.wheelbar-arrow:hover {
+  @apply opacity-25;
+}

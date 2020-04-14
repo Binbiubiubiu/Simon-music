@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import './style.less';
 
-import { DjProgramModel } from '@/api/1';
+import { DjProgramModel } from '@/api/recommond';
 import CachedImage from '@/components/CachedImage';
 
 interface DjProgramProps {

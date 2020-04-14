@@ -4,7 +4,7 @@ import './style.less';
 
 import Button from '@/components/Button';
 import Icon from '@/components/Icon';
-import { CatListType } from '@/api/2';
+import { CatListType } from '@/api/song-sheet';
 
 interface TagProps {
   checked: boolean;

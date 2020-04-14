@@ -8,7 +8,7 @@ import {
   queryHotSongSheetTag,
   queryTopPlaylist,
   queryCatlist,
-} from '@/api/2';
+} from '@/api/song-sheet';
 
 import SongSheetBlock, { SongSheetBlockProps } from '@/blocks/SongSheetBlock';
 

@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import cls from 'classnames';
 import './style.less';
-import { NewSongModel } from '@/api/1';
+import { NewSongModel } from '@/api/recommond';
 import { PlayIcon } from '@/components/Icon';
 import Button from '@/components/Button';
 import CachedImage from '@/components/CachedImage';

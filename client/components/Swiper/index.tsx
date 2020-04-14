@@ -2,7 +2,8 @@ import React, { FC, useState, useEffect } from 'react';
 import cls from 'classnames';
 import './style.less';
 import Button from '../Button';
-import { BannerModel } from '@/api/1';
+import { BannerModel } from '@/api/recommond';
+import { DJBannerModel } from '@/api/dj';
 
 type UseSwiperOpstion = {
   initCurrent?: number;
@@ -84,7 +85,7 @@ interface SwiperProps {
   /**
    *  轮播图数据
    */
-  dataSource: BannerModel[];
+  dataSource: BannerModel[] | DJBannerModel[];
   /**
    *  轮播图时间间隔(ms)
    *  @default 5000
@@ -108,8 +109,12 @@ const Swiper: FC<SwiperProps> = (props) => {
       onMouseLeave={() => setDisabled(false)}>
       <ul className="swiper-content">
         {items.map((position, i) => (
-          <li className={cls('swiper-item', position)} key={dataSource[i].targetId}>
-            <img className="w-full h-full" src={dataSource[i].imageUrl} alt="" />
+          <li className={cls('swiper-item', position)} key={dataSource[i].url}>
+            <img
+              className="w-full h-full"
+              src={(dataSource[i] as BannerModel).imageUrl || (dataSource[i] as DJBannerModel).pic}
+              alt={dataSource[i].typeTitle}
+            />
             <div className="swiper-badge">{dataSource[i].typeTitle}</div>
           </li>
         ))}

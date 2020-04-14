@@ -16,19 +16,19 @@ const menus = [
   },
   {
     title: '主播电台',
-    href: '/2',
+    href: '/dj',
   },
   {
     title: '排行榜',
-    href: '/3',
+    href: '/rank',
   },
   {
     title: '歌手',
-    href: '/4',
+    href: '/singer',
   },
   {
     title: '最新音乐',
-    href: '/5',
+    href: '/latest-music',
   },
 ];
 

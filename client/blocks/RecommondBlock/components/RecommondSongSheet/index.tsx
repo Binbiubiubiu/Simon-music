@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import './style.less';
-import { SongSheetModel } from '@/api/1';
+import { SongSheetModel } from '@/api/recommond';
 import Icon, { PlayIcon } from '@/components/Icon';
 import { numberBaseWan } from '@/utils/number';
 import CachedImage from '@/components/CachedImage';

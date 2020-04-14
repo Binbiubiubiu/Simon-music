@@ -1,4 +1,4 @@
-import React, { FC, useReducer, useEffect, useRef, useLayoutEffect } from 'react';
+import React, { FC, useReducer, useEffect, useContext } from 'react';
 import {
   HighqualityModel,
   HotSongSheetTag,
@@ -6,12 +6,13 @@ import {
   queryTopPlaylistHighquality,
   queryTopPlaylist,
   CatListType,
-} from '@/api/2';
+} from '@/api/song-sheet';
 import Pagination from '@/components/Pagination';
 import TagBtn from './components/TagBtn';
 import TagGroup from './components/TagGroup';
 import SongSheetBar from './components/SongSheetBar';
 import SongSheetList from './components/SongSheetList';
+import LayoutContext, { LayoutContextState } from '@/layout/context';
 
 export type SongSheetBlockProps = {
   initedTopBarInfo: HighqualityModel;
@@ -51,10 +52,12 @@ const SongSheetBlock: FC<SongSheetBlockProps> = (props) => {
     },
   );
 
-  const parentDom = useRef<HTMLDivElement>(null);
+  const { scrollToTop } = useContext<LayoutContextState | null>(
+    LayoutContext,
+  ) as LayoutContextState;
 
-  useLayoutEffect(() => {
-    parentDom.current?.parentElement?.parentElement?.scrollTo({ top: 0 });
+  useEffect(() => {
+    scrollToTop();
   }, [pagination, currentTag]);
 
   const handleTagChange = async (tag: string | number) => {
@@ -88,7 +91,7 @@ const SongSheetBlock: FC<SongSheetBlockProps> = (props) => {
     <>
       <SongSheetBar info={topBarInfo} />
 
-      <div ref={parentDom} className="flex align-middle justify-between my-20">
+      <div className="flex align-middle justify-between my-20">
         <TagBtn cats={initedCatList} value={currentTag} onChange={handleTagChange} />
         <TagGroup
           value={currentTag}

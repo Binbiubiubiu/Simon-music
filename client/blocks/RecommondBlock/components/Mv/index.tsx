@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import './style.less';
 
-import { MvModel } from '@/api/1';
+import { MvModel } from '@/api/recommond';
 import Icon from '@/components/Icon';
 import { numberBaseWan } from '@/utils/number';
 import CachedImage from '@/components/CachedImage';

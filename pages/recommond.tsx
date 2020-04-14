@@ -9,7 +9,7 @@ import {
   queryNewSongs,
   queryReconmmendMv,
   queryDjProgram,
-} from '@/api/1';
+} from '@/api/recommond';
 import RecommondBlock, { RecommondBlockProps } from '@/blocks/RecommondBlock';
 
 const RecommondPage = (props: RecommondBlockProps) => {

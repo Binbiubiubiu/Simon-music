@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import './style.less';
-import { PrivateContentModel } from '@/api/1';
+import { PrivateContentModel } from '@/api/recommond';
 import { PlayIcon } from '@/components/Icon';
 import CachedImage from '@/components/CachedImage';
 
