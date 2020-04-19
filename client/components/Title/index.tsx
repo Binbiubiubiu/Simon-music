@@ -6,7 +6,7 @@ import './style.less';
 import Icon from '@/components/Icon';
 
 interface TitleProps {
-  href: string;
+  href?: string;
   level: number;
 }
 
@@ -27,7 +27,7 @@ const Title: FC<TitleProps> = (props) => {
     );
   }
 
-  return <Component>{children}</Component>;
+  return <Component className="section-title">{children}</Component>;
 };
 
 export default Title;

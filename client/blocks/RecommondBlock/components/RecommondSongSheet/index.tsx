@@ -33,7 +33,7 @@ const RecommondSongSheet: FC<RecommondSongSheetProps> = (props) => {
             </div>
             <PlayIcon className="song-sheet-icon" />
           </div>
-          <div className="text-line-2 text-12 text-gray-400 cursor-pointer hover:text-white">
+          <div className="text-line-2 text-13 text-gray-400 cursor-pointer hover:text-white">
             {item.name}
           </div>
         </li>
