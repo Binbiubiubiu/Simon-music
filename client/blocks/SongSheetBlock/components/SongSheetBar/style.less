@@ -1,12 +1,16 @@
 .songsheet-bar-bg {
-  @apply absolute left-0 top-0;
+  background-repeat  : no-repeat;
+  background-position: top center;
+  background-size    : 100% auto;
+  filter             : blur(50px);
 
-  filter: blur(50px);
+  @apply absolute left-0 top-0 w-full h-full;
 }
 
 
 .songsheet-bar-img {
   @apply rounded-md mr-14;
 
-  width: 140px;
+  width : 140px;
+  height: 140px;
 }

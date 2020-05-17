@@ -26,7 +26,9 @@ const SongSheetBar: FC<SongSheetBarProps> = (props) => {
           <dd className="text-gray-300 text-12">{info.copywriter}</dd>
         </dl>
       </div>
-      <img src={info.coverImgUrl} className="songsheet-bar-bg" alt="" />
+      <div
+        style={{ backgroundImage: `url(${info.coverImgUrl})` }}
+        className="songsheet-bar-bg"></div>
     </section>
   );
 };

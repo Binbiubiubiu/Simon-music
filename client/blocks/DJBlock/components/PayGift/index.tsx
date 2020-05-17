@@ -15,7 +15,7 @@ const PayGift: FC<PayGiftProps> = (props) => {
       {dataSource.map((item) => (
         <li className="flex border-gray-800 border-t border-b py-12" key={item.id}>
           <div className="playgift-img">
-            <CachedImage src={item.picUrl} alt={item.name} />
+            <CachedImage className="w-full h-full" src={item.picUrl} alt={item.name} />
           </div>
           <dl className="flex-1">
             <dt className="mt-8 text-14 font-bold text-gray-400 cursor-pointer hover:text-white">

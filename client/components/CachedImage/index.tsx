@@ -1,10 +1,14 @@
 import React, { FC, useState, useEffect } from 'react';
+import cls from 'classnames';
+
 import './style.less';
 
-type CachedImageProps = React.ImgHTMLAttributes<HTMLImageElement>;
+type CachedImageProps = React.ImgHTMLAttributes<HTMLImageElement> & {
+  className?: string;
+};
 
 const CachedImage: FC<CachedImageProps> = (props) => {
-  const { alt, src, ...rest } = props;
+  const { alt, src, className, ...rest } = props;
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -18,7 +22,7 @@ const CachedImage: FC<CachedImageProps> = (props) => {
 
   if (!loaded) {
     return (
-      <div className="default-img">
+      <div className={cls('default-img', className)}>
         <svg
           viewBox="0 0 1024 1024"
           version="1.1"
@@ -40,7 +44,7 @@ const CachedImage: FC<CachedImageProps> = (props) => {
     );
   }
 
-  return <img src={src} alt={alt} {...rest} />;
+  return <img className={className} src={src} alt={alt} {...rest} />;
 };
 
 export default CachedImage;

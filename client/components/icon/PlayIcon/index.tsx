@@ -5,7 +5,7 @@ import Icon from '../';
 
 interface PlayIconProps {
   size?: number;
-  className: string;
+  className?: string;
   mode?: 'normal' | 'dark';
 }
 
