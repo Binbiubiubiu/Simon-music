@@ -11,7 +11,7 @@ interface PrivateContentProps {
 const PrivateContent: FC<PrivateContentProps> = (props) => {
   const { dataSource } = props;
   return (
-    <ul className="grid grid-cols-4 row-gap-34 col-gap-14">
+    <ul className="grid grid-cols-4 row-gap-8 col-gap-3">
       {dataSource.map((item) => (
         <li className="private-content-item" key={item.id}>
           <div className="private-content-img">
@@ -19,7 +19,7 @@ const PrivateContent: FC<PrivateContentProps> = (props) => {
 
             <PlayIcon className="private-content-icon" mode="dark" size={24} />
           </div>
-          <div className="text-gray-400 cursor-pointer hover:text-white">{item.name}</div>
+          <div className="text-xs text-gray-400 cursor-pointer hover:text-white">{item.name}</div>
         </li>
       ))}
     </ul>

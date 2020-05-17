@@ -18,14 +18,14 @@ const RankBlock: FC<RankBlockProps> = (props) => {
 
   return (
     <>
-      <section className="section mt-24">
+      <section className="section mt-6">
         <Title level={2}>官方榜</Title>
         {topListFour.map((item, index) => (
           <RankCard type={topFourType[index]} rank={item} key={item.id}></RankCard>
         ))}
         <SingerRankCard rank={artistToplist} />
       </section>
-      <section className="section mt-24">
+      <section className="section mt-6">
         <Title level={2}>全球榜</Title>
         <RankGrid dataSource={topListRest}></RankGrid>
       </section>

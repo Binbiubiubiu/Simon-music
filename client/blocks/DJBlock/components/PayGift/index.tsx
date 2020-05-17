@@ -11,23 +11,23 @@ interface PayGiftProps {
 const PayGift: FC<PayGiftProps> = (props) => {
   const { dataSource } = props;
   return (
-    <ul className="grid grid-cols-2 col-gap-14">
+    <ul className="grid grid-cols-2 col-gap-3">
       {dataSource.map((item) => (
-        <li className="flex border-gray-800 border-t border-b py-12" key={item.id}>
+        <li className="flex border-gray-800 border-t border-b py-3" key={item.id}>
           <div className="playgift-img">
             <CachedImage className="w-full h-full" src={item.picUrl} alt={item.name} />
           </div>
           <dl className="flex-1">
-            <dt className="mt-8 text-14 font-bold text-gray-400 cursor-pointer hover:text-white">
+            <dt className="mt-5 text-sm font-bold text-gray-400 cursor-pointer hover:text-white">
               {item.name}
             </dt>
-            <dd className=" text-12 text-gray-700 mt-14 leading-6">
+            <dd className=" text-xs text-gray-700 mt-3 leading-6">
               {item.rcmdText}
               <br />
-              <Icon type="bofangsanjiaoxing" className="text-white mr-6" />
+              <Icon type="bofangsanjiaoxing" className="text-white mr-2" />
               {item.lastProgramName}
             </dd>
-            <dd className="text-16 text-gray-700 cursor-pointer text-primary mt-10 ml-6">
+            <dd className="text-base text-gray-700 cursor-pointer text-primary mt-3 ml-2">
               ¥ {item.originalPrice / 100}
             </dd>
           </dl>

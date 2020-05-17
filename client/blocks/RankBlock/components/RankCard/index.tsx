@@ -28,7 +28,7 @@ export const RankCard: FC<RankCardProps> = (props) => {
   }, [type]);
 
   return (
-    <div className="flex mb-20">
+    <div className="flex mb-6">
       <div className="rankcard-img" style={{ backgroundImage: `url(${rank.coverImgUrl})` }}>
         <PlayIcon size={40} className="rankcard-icon" />
       </div>
@@ -48,7 +48,7 @@ export const RankCard: FC<RankCardProps> = (props) => {
         ))}
         <li className=" rankcard-list-item">
           <Link href="">
-            <span className="text-gray-600 text-12 hover:text-gray-500 cursor-pointer">
+            <span className="text-gray-600 text-xs hover:text-gray-500 cursor-pointer">
               查看全部 <Icon type="Group-1"></Icon>{' '}
             </span>
           </Link>
@@ -74,7 +74,7 @@ export const SingerRankCard: FC<SingerRankCardProps> = (props) => {
   }, []);
 
   return (
-    <div className="flex mb-20">
+    <div className="flex mb-6">
       <div className="rankcard-img" style={{ backgroundImage: `url(${rank.coverUrl})` }}>
         <PlayIcon size={40} className="rankcard-icon" />
       </div>
@@ -93,7 +93,7 @@ export const SingerRankCard: FC<SingerRankCardProps> = (props) => {
         ))}
         <li className=" rankcard-list-item">
           <Link href="">
-            <span className="text-gray-600 text-12 hover:text-gray-500 cursor-pointer">
+            <span className="text-gray-600 text-xs hover:text-gray-500 cursor-pointer">
               查看全部 <Icon type="Group-1"></Icon>{' '}
             </span>
           </Link>

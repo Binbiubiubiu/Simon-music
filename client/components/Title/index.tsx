@@ -20,7 +20,7 @@ const Title: FC<TitleProps> = (props) => {
         <Link href="/">
           <span>
             {children}{' '}
-            <Icon type="Group-1" className="text-24" style={{ verticalAlign: '-0.14em' }}></Icon>
+            <Icon type="Group-1" className="text-xl" style={{ verticalAlign: '-0.14em' }}></Icon>
           </span>
         </Link>
       </Component>

@@ -109,7 +109,7 @@ const Swiper: FC<SwiperProps> = (props) => {
       onMouseLeave={() => setDisabled(false)}>
       <ul className="swiper-content">
         {items.map((position, i) => (
-          <li className={cls('swiper-item', position)} key={dataSource[i].url}>
+          <li className={cls('swiper-item', position)} key={i}>
             <img
               className="w-full h-full"
               src={(dataSource[i] as BannerModel).imageUrl || (dataSource[i] as DJBannerModel).pic}

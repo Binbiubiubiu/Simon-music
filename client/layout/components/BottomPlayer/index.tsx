@@ -42,23 +42,23 @@ const BottomPlayer: FC<BottomPlayerProps> = () => {
               <span className="flex-1 truncate">My Heart Will Go On (Titanic)</span>
               <small className="whitespace-no-wrap opacity-75">&nbsp; - Bronn Journey</small>
             </dt>
-            <dd className="text-12 opacity-50">{musicTime}</dd>
+            <dd className="text-xs opacity-50">{musicTime}</dd>
           </dl>
         </li>
         <li className="bottom-player-control">
-          <Button type="xihuan" className="text-white text-18" title="喜欢"></Button>
+          <Button type="xihuan" className="text-white text-lg" title="喜欢"></Button>
           <Button
             type="shangyishou"
-            className="text-primary text-22"
+            className="text-primary text-2xl"
             title="上一首(快捷键)"></Button>
           <PlaySwitch paused={paused} onPlay={() => play(current)} onPause={pause} />
-          <Button type="next" className="text-primary text-22" title="下一首(快捷键)"></Button>
-          <Button type="fenxiang" className="text-white text-18" title="分享"></Button>
+          <Button type="next" className="text-primary text-2xl" title="下一首(快捷键)"></Button>
+          <Button type="fenxiang" className="text-white text-lg" title="分享"></Button>
         </li>
         <li className="bottom-player-menu">
-          <Button type="bofangliebiao" className="text-white text-18" title="打开播放列表"></Button>
-          <Button type="geci" className="text-white text-18" title="歌词"></Button>
-          <Button type="yinliang" className="text-white text-18" title="静音"></Button>
+          <Button type="bofangliebiao" className="text-white text-lg" title="打开播放列表"></Button>
+          <Button type="geci" className="text-white text-lg" title="歌词"></Button>
+          <Button type="yinliang" className="text-white text-lg" title="静音"></Button>
         </li>
       </ul>
     </footer>
@@ -79,7 +79,7 @@ const PlaySwitch: FC<PlaySwitchProps> = (props) => {
   return paused ? (
     <Button
       onClick={onPlay.bind(null, 0)}
-      type="bofang pl-4"
+      type="bofang pl-1"
       className="play-btn"
       title="播放(快捷键)"></Button>
   ) : (

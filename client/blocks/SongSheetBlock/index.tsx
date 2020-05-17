@@ -91,7 +91,7 @@ const SongSheetBlock: FC<SongSheetBlockProps> = (props) => {
     <>
       <SongSheetBar info={topBarInfo} />
 
-      <div className="flex align-middle justify-between my-20">
+      <div className="flex align-middle justify-between my-6">
         <TagBtn cats={initedCatList} value={currentTag} onChange={handleTagChange} />
         <TagGroup
           value={currentTag}
@@ -101,7 +101,7 @@ const SongSheetBlock: FC<SongSheetBlockProps> = (props) => {
       </div>
       <SongSheetList dataSource={list} />
 
-      <Pagination className="mt-40 mb-80" {...pagination} onPageChange={handlePageChange} />
+      <Pagination className="mt-16 mb-20" {...pagination} onPageChange={handlePageChange} />
     </>
   );
 };

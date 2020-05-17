@@ -2,17 +2,17 @@
 @import "tailwindcss/base.css";
 
 html {
-  @apply font-serif leading-tight antialiased overflow-hidden;
-
+  font-size                  : 16px;
   -webkit-text-size-adjust   : 100%;
   -ms-text-size-adjust       : 100%;
   text-size-adjust           : 100%;
   -ms-overflow-style         : scrollbar;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  @apply antialiased;
 }
 
 body {
-  @apply font-sans leading-normal text-14 text-gray-900 select-none overflow-hidden;
+  @apply select-none overflow-hidden;
 
   font-variant                 : tabular-nums;
   -webkit-font-feature-settings: 'tnum';

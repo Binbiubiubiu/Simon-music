@@ -21,7 +21,7 @@ interface SongSheetListProps {
 const SongSheetList: FC<SongSheetListProps> = (props) => {
   const { dataSource } = props;
   return (
-    <ul className="grid grid-cols-4 lg:grid-cols-5 row-gap-34 col-gap-14">
+    <ul className="grid grid-cols-4 lg:grid-cols-5 row-gap-8 col-gap-3">
       {dataSource.map((item) => (
         <li className="song-sheet-item" key={item.id}>
           <div className="song-sheet-img">
@@ -40,7 +40,7 @@ const SongSheetList: FC<SongSheetListProps> = (props) => {
             </div>
             <PlayIcon size={44} className="song-sheet-icon" />
           </div>
-          <div className="text-line-2 text-12 text-gray-400 cursor-pointer hover:text-white">
+          <div className="text-line-2 text-xs text-gray-400 cursor-pointer hover:text-white">
             {item.name}
           </div>
         </li>

@@ -1,4 +1,5 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
+import cls from 'classnames';
 import './style.less';
 import Icon from '@/components/Icon';
 import Button from '@/components/Button';
@@ -8,14 +9,21 @@ interface SearchProps {
 }
 
 const Search: FC<SearchProps> = () => {
+  const [val, setVal] = useState('');
   return (
-    <div className="search-wrapper text-white">
-      <Icon type="search" className="text-16 " />
+    <div className="search-wrapper ">
+      <Icon type="search" className="text-base " />
       <input
-        className="flex-1 w-full bg-transparent focus:outline-none text-white px-4"
+        value={val}
+        onInput={(e: any) => setVal(e.target.value)}
+        className="flex-1 w-full bg-transparent focus:outline-none text-white px-1"
         placeholder="搜索"
       />
-      <Button type="baseline-close-px" className="text-12" />
+      <Button
+        className={cls({ invisible: !val })}
+        onClick={() => setVal('')}
+        type="baseline-close-px"
+      />
     </div>
   );
 };

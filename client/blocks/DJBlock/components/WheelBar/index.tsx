@@ -41,7 +41,7 @@ const WheelBar: FC<WheelBarProps> = (props) => {
           style={{ transform: `translate(${-x * 100}%,0)` }}>
           <li className="wheelbar-type">
             <div className="wheelbar-icon">
-              <Icon type="paihangbang" className="text-primary text-24" />
+              <Icon type="paihangbang" className="text-primary text-3xl" />
             </div>
             <div className="wheelbar-text">排行榜</div>
           </li>

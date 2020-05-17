@@ -61,7 +61,7 @@ const MenuItem: FC<MenuItemProps> = (props) => {
   return (
     <Link href={href}>
       <span className={cls('menu-item', { 'menu-item-active': active })}>
-        <Icon className="mr-8 text-18" type={icon} />
+        <Icon className="mr-2 text-lg" type={icon} />
         {children}
       </span>
     </Link>

@@ -40,27 +40,27 @@ const NavBar: FC<NavBarProps> = () => {
   return (
     <header className="nav-bar">
       <div className="side-bar-header">
-        <Button type="Group-" className="text-white text-18 mx-4" hover></Button>
-        <Button type="Group-1" className="text-white text-18 mx-4 " hover disabled></Button>
+        <Button type="Group-" className="text-white text-lg mx-1" hover></Button>
+        <Button type="Group-1" className="text-white text-lg mx-1 " hover disabled></Button>
       </div>
-      <nav className="flex-1 ml-10">
+      <nav className="flex-1 ml-3">
         {menus.map(({ href, activeLinkPath, title }) => (
           <NavLink
             href={href}
             activeLinkPath={activeLinkPath}
             key={href}
             activeClass="nav-link-active">
-            <a href={href} className="text-gray-500 hover:text-gray-400 px-14">
+            <a href={href} className="text-sm text-gray-500 hover:text-gray-400 px-3">
               {title}
             </a>
           </NavLink>
         ))}
       </nav>
-      <div className="nav-toolbar mr-10">
+      <div className="nav-toolbar mr-3">
         <Search />
-        <Button type="shezhi" className="text-white text-18" hover />
-        <Button type="youjian" className="text-white text-18" hover />
-        <Button type="pifu" className="text-white text-18" hover />
+        <Button type="shezhi" className="text-white text-lg" hover />
+        <Button type="youjian" className="text-white text-lg" hover />
+        <Button type="pifu" className="text-white text-lg" hover />
       </div>
     </header>
   );

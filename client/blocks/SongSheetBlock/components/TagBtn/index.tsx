@@ -48,16 +48,16 @@ const TagBtn: FC<TagBtnProps> = (props) => {
 
   const Popuper = (
     <section className="tag-popup">
-      <header className="py-10 px-20 border-b border-gray-600">
+      <header className="py-3 px-6 border-b border-gray-600">
         <Tag checked={value === '全部歌单'} value="全部歌单" onChange={handleTagChange} />
       </header>
-      <main className="p-20">
+      <main className="p-6">
         {cats.sub.map((group, i) => {
           return (
-            <dl className="flex mb-24" key={cats.categories[i]}>
+            <dl className="flex mb-6" key={cats.categories[i]}>
               <dt className="type-tag-group-label">
                 <div className="flex items-center">
-                  <Icon type={TagGroupIcon[i]} className="text-gray-500 text-24 pr-6" />
+                  <Icon type={TagGroupIcon[i]} className="text-gray-500 text-xl pr-2" />
                   <span className="text-white opacity-25">{cats.categories[i]}</span>
                 </div>
               </dt>
@@ -86,7 +86,7 @@ const TagBtn: FC<TagBtnProps> = (props) => {
     <div className="relative">
       <Button className="tag-btn" onClick={() => setOpen(!open)}>
         {value}
-        <Icon type="Group-1" className="ml-4" />
+        <Icon type="Group-1" className="ml-1" />
       </Button>
       {open && Popuper}
     </div>

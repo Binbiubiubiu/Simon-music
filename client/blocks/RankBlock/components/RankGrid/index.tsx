@@ -27,7 +27,7 @@ const RankGridCard: FC<RankGridCardProps> = (props) => {
             </div>
             <PlayIcon className="rank-grid-icon" size={45} />
           </div>
-          <div className="text-line-2 text-13 text-gray-400 cursor-pointer hover:text-white">
+          <div className="text-line-2 text-xs text-gray-400 cursor-pointer hover:text-white">
             {item.name}
           </div>
         </li>
