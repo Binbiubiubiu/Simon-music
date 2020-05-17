@@ -19,11 +19,11 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "electron": "electron .",
+    "electron": "cross-env BASE_API=http://localhost:3000 electron .",
     "dev": "next dev -p 3001",
     "build": "next build",
     "start": "cross-env NODE_ENV=production PORT=3001 nodemon server",
-    "start:custom": "nodemon server",
+    "start:custom": "pm2 start server",
     "export": "next export",
     "lint:script": "eslint . --ext .tsx,.ts",
     "lint:style": "stylelint '**/*.css'",

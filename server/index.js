@@ -3,33 +3,34 @@ const next = require('next');
 
 const envVars = require('../scripts/env');
 
-const port = parseInt(process.env.PORT, 10) || 3000;
+const port = parseInt(process.env.PORT, 10) || 3001;
 const env = process.env.NODE_ENV;
-const apiPrefix = envVars.BASE_API;
+// const apiPrefix = envVars.BASE_API;
 const dev = env !== 'production';
 
-const devProxy = {
-  [apiPrefix]: {
-    target: 'http://localhost:3000/',
-    pathRewrite: { [`^${apiPrefix}`]: '/' },
-    changeOrigin: true,
-  },
-};
+// const devProxy = {
+//   [apiPrefix]: {
+//     target: 'http://localhost:3000/',
+//     pathRewrite: { [`^${apiPrefix}`]: '/api' },
+//     changeOrigin: true,
+//   },
+// };
 
-const app = next({ dev });
-const handle = app.getRequestHandler();
+async function startApp() {
+  const app = next({ dev });
+  const handle = app.getRequestHandler();
 
-app
-  .prepare()
-  .then(() => {
+  try {
+    await app.prepare();
+
     const server = express();
 
-    if (dev && devProxy) {
-      const proxyMiddleware = require('http-proxy-middleware');
-      Object.keys(devProxy).forEach(function(context) {
-        server.use(proxyMiddleware(context, devProxy[context]));
-      });
-    }
+    // if (dev && devProxy) {
+    //   const proxyMiddleware = require('http-proxy-middleware');
+    //   Object.keys(devProxy).forEach(function(context) {
+    //     server.use(proxyMiddleware(context, devProxy[context]));
+    //   });
+    // }
 
     server.all('*', (req, res) => {
       return handle(req, res);
@@ -39,8 +40,12 @@ app
       if (err) throw err;
       console.log(`> Ready on port http://localhost:${port} [${env}]`);
     });
-  })
-  .catch((err) => {
+  } catch (err) {
     console.error(err.stack);
     process.exit(1);
-  });
+  }
+}
+
+// startApp();
+
+module.exports = startApp;
