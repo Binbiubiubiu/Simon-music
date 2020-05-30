@@ -1,14 +1,23 @@
 .tag {
-  @apply inline-block py-2 px-3 mx-1 leading-none rounded-full cursor-pointer text-xs text-gray-600 whitespace-no-wrap;
+  @apply inline-block rounded-full cursor-pointer text-center whitespace-no-wrap;
 }
 
-.tag:hover {
-  @apply text-gray-400;
-}
 
 .tag-active,
 .tag-active:hover {
   @apply text-primary;
 
   background-color: rgba(194, 70, 58, .06);
+}
+
+.tag-hot {
+  @apply relative inline-block;
+}
+
+.tag-hot::after {
+  @apply absolute top-0 text-xs font-semibold text-primary;
+
+  left     : 100%;
+  transform: scale(.5) translateX(-50%);
+  content  : 'HOT';
 }

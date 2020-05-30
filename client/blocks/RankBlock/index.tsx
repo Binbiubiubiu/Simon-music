@@ -3,6 +3,7 @@ import Title from '@/components/Title';
 import { TopListItem, ArtistToplist } from '@/api/toplist';
 import { RankCard, SingerRankCard } from './components/RankCard';
 import RankGrid from './components/RankGrid';
+import PageContainer from '@/components/PageContainer';
 
 const topFourType = [3, 0, 2, 1];
 
@@ -17,7 +18,7 @@ const RankBlock: FC<RankBlockProps> = (props) => {
   const topListRest = topList.slice(4);
 
   return (
-    <>
+    <PageContainer>
       <section className="section mt-6">
         <Title level={2}>官方榜</Title>
         {topListFour.map((item, index) => (
@@ -29,7 +30,7 @@ const RankBlock: FC<RankBlockProps> = (props) => {
         <Title level={2}>全球榜</Title>
         <RankGrid dataSource={topListRest}></RankGrid>
       </section>
-    </>
+    </PageContainer>
   );
 };
 

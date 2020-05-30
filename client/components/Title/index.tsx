@@ -1,9 +1,8 @@
 import React, { FC } from 'react';
 import Link from 'next/link';
+import Icon from '@/components/Icon';
 
 import './style.less';
-
-import Icon from '@/components/Icon';
 
 interface TitleProps {
   href?: string;

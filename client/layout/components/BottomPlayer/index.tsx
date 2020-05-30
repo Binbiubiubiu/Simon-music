@@ -11,7 +11,7 @@ interface BottomPlayerProps {
 
 const BottomPlayer: FC<BottomPlayerProps> = () => {
   const { audioRef, paused, duration, current, percent, play, pause } = useAudio(
-    'http://m8.music.126.net/20200406161931/2e19063bbd0c15b7ed8eeae6197a9295/ymusic/0fd6/4f65/43ed/a8772889f38dfcb91c04da915b301617.mp3',
+    'https://m10.music.126.net/20200529231105/3295fb60170389ebdd3d1209f296835a/ymusic/0281/ca8c/2acd/063a9d4ee75c895b6130f8048bb0b37d.mp3',
   );
 
   const musicTime = useMemo<string>(

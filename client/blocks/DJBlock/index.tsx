@@ -9,10 +9,11 @@ import {
 } from '@/api/dj';
 
 import Swiper from '@/components/Swiper';
+import Title from '@/components/Title';
 import WheelBar from './components/WheelBar';
 import PayGift from './components/PayGift';
 import Recommend from './components/Recommend';
-import Title from '@/components/Title';
+import PageContainer from '@/components/PageContainer';
 
 export interface DJBlockProps {
   banners: DJBannerModel[];
@@ -25,7 +26,7 @@ export interface DJBlockProps {
 const DJBlock: FC<DJBlockProps> = (props) => {
   const { banners, catList, payGiftList, recommendList, recommendTypeList } = props;
   return (
-    <>
+    <PageContainer>
       <Swiper dataSource={banners}></Swiper>
       <WheelBar dataSource={catList} />
       <section className="section">
@@ -68,7 +69,7 @@ const DJBlock: FC<DJBlockProps> = (props) => {
         </Title>
         <Recommend dataSource={recommendTypeList[4]} />
       </section>
-    </>
+    </PageContainer>
   );
 };
 

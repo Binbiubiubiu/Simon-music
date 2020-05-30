@@ -27,6 +27,6 @@
     "client/**/*.ts",
     "pages/**/*.tsx",
     "client/components/side-bar/index.tsx",
-    "client/modules/Title/index.tsx"
+    "client/modules/Title/index.tsx", "client/components/PageContainer/index.tsx"
   ]
 }

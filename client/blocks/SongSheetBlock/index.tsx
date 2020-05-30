@@ -1,4 +1,4 @@
-import React, { FC, useReducer, useEffect, useContext } from 'react';
+import React, { FC, useReducer, useEffect, useRef } from 'react';
 import {
   HighqualityModel,
   HotSongSheetTag,
@@ -12,7 +12,7 @@ import TagBtn from './components/TagBtn';
 import TagGroup from './components/TagGroup';
 import SongSheetBar from './components/SongSheetBar';
 import SongSheetList from './components/SongSheetList';
-import LayoutContext, { LayoutContextState } from '@/layout/context';
+import PageContainer from '@/components/PageContainer';
 
 export type SongSheetBlockProps = {
   initedTopBarInfo: HighqualityModel;
@@ -52,12 +52,13 @@ const SongSheetBlock: FC<SongSheetBlockProps> = (props) => {
     },
   );
 
-  const { scrollToTop } = useContext<LayoutContextState | null>(
-    LayoutContext,
-  ) as LayoutContextState;
+  // const { scrollToTop } = useContext<LayoutContextState | null>(
+  //   LayoutContext,
+  // ) as LayoutContextState;
+  const pageEl = useRef<typeof PageContainer>();
 
   useEffect(() => {
-    scrollToTop();
+    pageEl.current?.moveTop();
   }, [pagination, currentTag]);
 
   const handleTagChange = async (tag: string | number) => {
@@ -88,7 +89,7 @@ const SongSheetBlock: FC<SongSheetBlockProps> = (props) => {
   };
 
   return (
-    <>
+    <PageContainer ref={pageEl}>
       <SongSheetBar info={topBarInfo} />
 
       <div className="flex align-middle justify-between my-6">
@@ -102,7 +103,7 @@ const SongSheetBlock: FC<SongSheetBlockProps> = (props) => {
       <SongSheetList dataSource={list} />
 
       <Pagination className="mt-16 mb-20" {...pagination} onPageChange={handlePageChange} />
-    </>
+    </PageContainer>
   );
 };
 

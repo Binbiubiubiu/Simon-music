@@ -11,13 +11,13 @@ interface SideBarProps {
 const SideBar: FC<SideBarProps> = () => {
   return (
     <aside className="side-bar">
-      <div className="user-info">
+      <div className="flex items-center p-3">
         <img
-          className="user-avator"
+          className="w-10 h-10 mr-3 rounded-full"
           src="https://p4.music.126.net/lRE0QHTUkA_DxlB14uzSqg==/109951164207703933.jpg?param=200y200"
           alt="avator"
         />
-        <div className="user-name text-overflow">今天又懒得加班</div>
+        <div className="flex-1 text-white text-sm text-overflow">今天又懒得加班</div>
       </div>
       <MenuItem href="/" icon="wangyiyunyinlezizhi-copy" active>
         发现音乐

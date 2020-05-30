@@ -23,7 +23,7 @@
     "dev": "next dev -p 3001",
     "build": "next build",
     "start": "cross-env NODE_ENV=production PORT=3001 nodemon server",
-    "start:custom": "pm2 start server",
+    "start:custom": "cross-env NODE_ENV=production PORT=3001 node server",
     "export": "next export",
     "lint:script": "eslint . --ext .tsx,.ts",
     "lint:style": "stylelint '**/*.css'",

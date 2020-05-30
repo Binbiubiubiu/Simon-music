@@ -94,7 +94,7 @@ interface SwiperProps {
 }
 
 const Swiper: FC<SwiperProps> = (props) => {
-  const { dataSource, duration = 5000 } = props;
+  const { dataSource = [], duration = 5000 } = props;
 
   const { current, items, nextAction, preAction, setCurrent, setDisabled } = useSwiper({
     initCurrent: 0,

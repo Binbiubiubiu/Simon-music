@@ -15,7 +15,7 @@ export const PlayIcon: FC<PlayIconProps> = (props) => {
   if (mode == 'dark') {
     return (
       <div
-        className={cls('play-icon', `play-icon-${mode}`, className)}
+        className={cls('play-icon', `play-icon-dark`, className)}
         style={{ width: size, height: size, fontSize: size * 0.5 }}>
         <Icon type="bofangsanjiaoxing" />
       </div>
@@ -24,7 +24,7 @@ export const PlayIcon: FC<PlayIconProps> = (props) => {
 
   return (
     <div
-      className={cls('play-icon', `play-icon-${mode}`, className)}
+      className={cls('play-icon', `play-icon-normal`, className)}
       style={{ width: size, height: size, fontSize: size * 0.6 }}>
       <Icon type="bofang" />
     </div>

@@ -46,6 +46,6 @@ async function startApp() {
   }
 }
 
-// startApp();
+startApp();
 
 module.exports = startApp;

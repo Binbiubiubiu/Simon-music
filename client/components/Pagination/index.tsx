@@ -34,7 +34,11 @@ const Pagination: FC<PaginationProps> = (props) => {
 
   const renderBtns = (pageNo) => {
     if (typeof pageNo == 'string') {
-      return <div className="pagination-btn">...</div>;
+      return (
+        <div key={pageNo} className="pagination-btn">
+          ...
+        </div>
+      );
     }
 
     return (

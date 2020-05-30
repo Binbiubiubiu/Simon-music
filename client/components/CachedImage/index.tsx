@@ -5,10 +5,11 @@ import './style.less';
 
 type CachedImageProps = React.ImgHTMLAttributes<HTMLImageElement> & {
   className?: string;
+  mode?: 'cover' | 'contain';
 };
 
 const CachedImage: FC<CachedImageProps> = (props) => {
-  const { alt, src, className, ...rest } = props;
+  const { alt, src, className, mode = 'contain', ...rest } = props;
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
@@ -41,6 +42,16 @@ const CachedImage: FC<CachedImageProps> = (props) => {
             p-id="32224"></path>
         </svg>
       </div>
+    );
+  }
+
+  if (mode == 'cover') {
+    return (
+      <div
+        style={{ backgroundImage: `url(${src})` }}
+        className={cls('cache-image-cover', className)}
+        {...rest}
+      />
     );
   }
 

@@ -1,33 +1,10 @@
 import React, { FC, useState } from 'react';
-import cls from 'classnames';
 import './style.less';
 
 import Button from '@/components/Button';
 import Icon from '@/components/Icon';
 import { CatListType } from '@/api/song-sheet';
-
-interface TagProps {
-  checked: boolean;
-  value: any;
-  onChange: (val: any) => void;
-  hot?: boolean;
-}
-
-const Tag: FC<TagProps> = (props) => {
-  const { checked, value, hot, onChange, children } = props;
-  return (
-    <label className={cls('type-tag', { 'type-tag-active': checked })}>
-      <input
-        className="invisible w-0"
-        type="radio"
-        value={value}
-        checked={checked}
-        onChange={() => onChange(value)}
-      />
-      <span className={cls({ 'type-tag-hot': hot })}>{children || value}</span>
-    </label>
-  );
-};
+import { Tag } from '../TagGroup';
 
 const TagGroupIcon = ['diqiuquanqiu', 'gangqin', 'kafei', 'xiaolian', 'li_paibanleixing_c'];
 
@@ -49,7 +26,13 @@ const TagBtn: FC<TagBtnProps> = (props) => {
   const Popuper = (
     <section className="tag-popup">
       <header className="py-3 px-6 border-b border-gray-600">
-        <Tag checked={value === '全部歌单'} value="全部歌单" onChange={handleTagChange} />
+        <Tag
+          textColorClassName="text-gray-400"
+          hoverClassName="hover:text-primary"
+          checked={value === '全部歌单'}
+          label="全部歌单"
+          value="全部歌单"
+          onChange={handleTagChange}></Tag>
       </header>
       <main className="p-6">
         {cats.sub.map((group, i) => {
@@ -58,19 +41,21 @@ const TagBtn: FC<TagBtnProps> = (props) => {
               <dt className="type-tag-group-label">
                 <div className="flex items-center">
                   <Icon type={TagGroupIcon[i]} className="text-gray-500 text-xl pr-2" />
-                  <span className="text-white opacity-25">{cats.categories[i]}</span>
+                  <span className="text-white opacity-25 text-sm">{cats.categories[i]}</span>
                 </div>
               </dt>
               <dd className="flex-1 ">
-                <ul className="grid grid-cols-6 gap-6">
+                <ul className="grid grid-cols-6 gap-3">
                   {group.map((tag) => (
                     <li key={tag.name}>
                       <Tag
+                        textColorClassName="text-gray-400"
+                        hoverClassName="hover:text-primary"
                         value={tag.name}
+                        label={tag.name}
                         checked={tag.name === value}
                         onChange={handleTagChange}
-                        hot={tag.hot}
-                      />
+                        hot={tag.hot}></Tag>
                     </li>
                   ))}
                 </ul>

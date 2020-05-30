@@ -18,7 +18,7 @@ const DjProgram: FC<DjProgramProps> = (props) => {
             <CachedImage src={item.picUrl} alt={item.program.radio.name} />
           </div>
           <div className="flex-1 flex flex-col justify-center">
-            <div className="text-gray-400 text-sm cursor-pointer hover:text-white truncate mb-5">
+            <div className="text-gray-400 text-sm cursor-pointer hover:text-white truncate mb-3">
               {item.program.radio.name}
             </div>
             <div className="text-gray-700 text-xs cursor-pointer hover:text-gray-600 truncate ">

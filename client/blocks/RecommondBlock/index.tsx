@@ -11,6 +11,7 @@ import {
 import Swiper from '@/components/Swiper';
 import Title from '@/components/Title';
 import { RecommondSongSheet, PrivateContent, NewSongs, Mv, DjProgram } from './components';
+import PageContainer from '@/components/PageContainer';
 
 export type RecommondBlockProps = {
   banners: BannerModel[];
@@ -25,7 +26,7 @@ const RecommondBlock: FC<RecommondBlockProps> = (props) => {
   const { banners, recommendSongSheet, privateContent, newSongs, recommendMv, djProgram } = props;
 
   return (
-    <>
+    <PageContainer>
       <Swiper dataSource={banners}></Swiper>
       <section className="section">
         <Title level={2} href="/">
@@ -57,7 +58,7 @@ const RecommondBlock: FC<RecommondBlockProps> = (props) => {
         </Title>
         <DjProgram dataSource={djProgram} />
       </section>
-    </>
+    </PageContainer>
   );
 };
 

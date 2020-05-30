@@ -14,8 +14,8 @@ module.exports = {
   pageExtensions: ['jsx', 'js', 'ts', 'tsx'],
   // cssModules: true,
   // cssLoaderOptions: {
-  //   importLoaders: 1,
-  //   localIdentName: '[local]___[hash:base64:5]',
+  //   importLoaders: 3,
+  //   localIdentName: '[local]_[hash:base64:5]',
   // },
   lessLoaderOptions: {
     javascriptEnabled: true,
@@ -41,6 +41,8 @@ module.exports = {
         });
       }
     });
+
+    // console.log(JSON.stringify(config.module.rules));
 
     config.node = {
       fs: 'empty',

@@ -30,7 +30,7 @@ const Icon: FC<IconProps> = (props) => {
     };
   }, [size, style]);
 
-  return <i className={cls('iconfont', type, 'icon-default', className)} style={computedStyle}></i>;
+  return <i className={cls('iconfont', type, className)} style={computedStyle}></i>;
 };
 
 export default Icon;
